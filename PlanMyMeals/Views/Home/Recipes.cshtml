@@ -1,8 +1,49 @@
-﻿@{
+﻿@model Meal
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div class="body-Recipe">
+    <h1>Add Recipe</h1>
+
+    <form action="" asp-constoller="Home" method="post">
+        <div class="InfoBox">
+            <div class="justify-context-space-between">
+                <label asp-for="MealName">Name</label>
+                <input asp-for="MealName">
+                <span asp-validaton-for="MealName"></span>
+            </div>
+
+            <div class="justify-context-space-between">
+                <label asp-for="MealName">Calories</label>
+                <input asp-for="MealName">
+                <span asp-validaton-for="MealName"></span>
+            </div>
+            <div class="justify-context-space-between">
+                <label asp-for="MealName">Protein</label>
+                <input asp-for="MealName">
+                <span asp-validaton-for="MealName"></span>
+            </div>
+
+            <div class="justify-context-space-between">
+                <label asp-for="MealName">Carbs</label>
+                <input asp-for="MealName">
+                <span asp-validaton-for="MealName"></span>
+            </div>
+
+            <div class="justify-context-space-between">
+                <label asp-for="MealName">Fat</label>
+                <input asp-for="MealName">
+                <span asp-validaton-for="MealName"></span>
+            </div>
+
+        </div>
+
+        <div class="IngredientBox">
+
+        </div>
+    </form>
+
+
 </div>

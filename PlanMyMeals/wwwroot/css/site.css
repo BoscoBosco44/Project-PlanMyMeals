@@ -20,3 +20,31 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+
+/* ------------ Meal Plan Page ------------- */
+
+.pageBox {
+  border: 2px solid red;
+}
+
+.mealBox {
+  border: 3px solid black;
+  border-radius: 1em;
+}
+
+
+/* ------------ Add Recipe ------------- */
+
+.body-Recipe {
+  border: 2px solid red;
+
+}
+
+.InfoBox {
+  border: 2px solid gray;
+}
+
+.IngredientBox {
+
+}
