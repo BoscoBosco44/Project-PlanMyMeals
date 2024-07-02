@@ -7,7 +7,7 @@
 <div class="body-Recipe">
     <h1>Add Recipe</h1>
 
-    <form action="" asp-constoller="Home" method="post">
+    <form action="" asp-constoller="Home" method="post" class="flex">
         <div class="InfoBox">
             <div class="justify-context-space-between">
                 <label asp-for="MealName">Name</label>
@@ -20,6 +20,7 @@
                 <input asp-for="MealName">
                 <span asp-validaton-for="MealName"></span>
             </div>
+
             <div class="justify-context-space-between">
                 <label asp-for="MealName">Protein</label>
                 <input asp-for="MealName">
@@ -41,6 +42,19 @@
         </div>
 
         <div class="IngredientBox">
+            <h3>Ingredients</h3>
+            <div class="IngNameBox">
+                <input type="text" placeholder="Name">
+            </div>
+
+            <div>
+                <input type="text" placeholder="Amount">
+                <input type="text" placeholder="Ing Range">
+                <div>
+                    <label for="IngredientIsGrams">Is Grams?</label>
+                    <input type="checkbox">
+                </div>
+            </div>
 
         </div>
     </form>

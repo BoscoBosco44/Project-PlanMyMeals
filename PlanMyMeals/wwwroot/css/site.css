@@ -22,6 +22,13 @@ body {
 }
 
 
+/* ------------ General ------------- */
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
 /* ------------ Meal Plan Page ------------- */
 
 .pageBox {
@@ -38,13 +45,21 @@ body {
 
 .body-Recipe {
   border: 2px solid red;
-
+  
 }
 
 .InfoBox {
   border: 2px solid gray;
+  margin: 1em;
 }
 
 .IngredientBox {
+  border: 2px solid gray;
+  margin: 1em;
+  width: 30em;
+}
 
+.IngNameBox {
+  border: 2px solid gray;
+  border-radius: 1em;
 }
