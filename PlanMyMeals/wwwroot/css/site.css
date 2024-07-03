@@ -25,7 +25,16 @@ body {
 /* ------------ General ------------- */
 .flex {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+}
+
+.margin-auto {
+  margin: auto;
+  width: 100%;
+}
+
+.paddingR-1 {
+  padding-right: 1em;
 }
 
 
@@ -44,17 +53,42 @@ body {
 /* ------------ Add Recipe ------------- */
 
 .body-Recipe {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   
 }
 
-.InfoBox {
-  border: 2px solid gray;
-  margin: 1em;
+.AddRecipeText {
+  margin-bottom: -0.15em;
+  padding-left: 0.3em;
 }
 
-.IngredientBox {
+.AddRecipeLine {
   border: 2px solid gray;
+  width: 20%;
+  margin-bottom: 1em;
+}
+
+/* --- Info Box --- */
+
+.InfoBox {
+  /* border: 2px solid gray; */
+  margin: 1em;
+  margin-top: 4.5em;
+}
+
+.InfoBoxSpacing {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  
+  padding-bottom: 1em;
+  
+}
+
+/* --- Ingredients Box --- */
+
+.IngredientBox {
+  /* border: 2px solid gray; */
   margin: 1em;
   width: 30em;
 }
@@ -62,4 +96,32 @@ body {
 .IngNameBox {
   border: 2px solid gray;
   border-radius: 1em;
+  width: 90%;
+  padding: 0.5em;
+  
+  margin:auto;
+}
+
+.IngInfoBox {
+  border: 2px solid gray;
+  border-radius: 0.5em;
+  width: 33%;
+  padding: 0.5em;
+  margin: 1em;
+}
+
+.IngListBox {
+  border: 3px solid gray;
+  border-radius: 1em;
+  width: 100%;
+  height: 10em;
+  
+  margin-top: 2em;
+  
+}
+
+/* --- Ingredients Box --- */
+
+.InstructionsBox {
+  border: 2px solid gray;
 }

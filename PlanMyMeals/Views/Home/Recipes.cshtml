@@ -5,36 +5,37 @@
 
 
 <div class="body-Recipe">
-    <h1>Add Recipe</h1>
+    <h1 class="AddRecipeText">Add Recipe</h1>
+    <div class="AddRecipeLine"></div>
 
     <form action="" asp-constoller="Home" method="post" class="flex">
         <div class="InfoBox">
-            <div class="justify-context-space-between">
-                <label asp-for="MealName">Name</label>
+            <div class="InfoBoxSpacing">
+                <label class="paddingR-1" asp-for="MealName">Name</label>
                 <input asp-for="MealName">
                 <span asp-validaton-for="MealName"></span>
             </div>
 
-            <div class="justify-context-space-between">
-                <label asp-for="MealName">Calories</label>
+            <div class="InfoBoxSpacing">
+                <label class="paddingR-1" asp-for="MealName">Calories</label>
                 <input asp-for="MealName">
                 <span asp-validaton-for="MealName"></span>
             </div>
 
-            <div class="justify-context-space-between">
-                <label asp-for="MealName">Protein</label>
+            <div class="InfoBoxSpacing">
+                <label class="paddingR-1" asp-for="MealName">Protein</label>
                 <input asp-for="MealName">
                 <span asp-validaton-for="MealName"></span>
             </div>
 
-            <div class="justify-context-space-between">
-                <label asp-for="MealName">Carbs</label>
+            <div class="InfoBoxSpacing">
+                <label class="paddingR-1" asp-for="MealName">Carbs</label>
                 <input asp-for="MealName">
                 <span asp-validaton-for="MealName"></span>
             </div>
 
-            <div class="justify-context-space-between">
-                <label asp-for="MealName">Fat</label>
+            <div class="InfoBoxSpacing">
+                <label class="paddingR-1" asp-for="MealName">Fat</label>
                 <input asp-for="MealName">
                 <span asp-validaton-for="MealName"></span>
             </div>
@@ -43,18 +44,22 @@
 
         <div class="IngredientBox">
             <h3>Ingredients</h3>
-            <div class="IngNameBox">
-                <input type="text" placeholder="Name">
+            <div class="margin-auto">
+                <input type="text" class="IngNameBox" placeholder="Name">
             </div>
 
-            <div>
-                <input type="text" placeholder="Amount">
-                <input type="text" placeholder="Ing Range">
-                <div>
+            <div class="flex">
+                <input class="IngInfoBox" type="text" placeholder="Amount">
+                <input class="IngInfoBox" type="text" placeholder="Ing Range">
+                <div class="IngInfoBox">
                     <label for="IngredientIsGrams">Is Grams?</label>
                     <input type="checkbox">
                 </div>
             </div>
+
+                <div class="IngListBox">
+
+                </div>
 
         </div>
     </form>
