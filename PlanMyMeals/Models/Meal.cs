@@ -14,7 +14,9 @@ public class Meal
     public int MealCarbs {get; set;}
     public int MealFat {get; set;}
 
-    public List<Ingredient> IngredientList {get; set;} = []; //Check this ASAP
+    public string MealImgLocation {get; set;} // Ask paul - how to store imgs
+
+    public List<Ingredient> IngredientList {get; set;} = []; // Ask paul
 
     public DateTime CreatedAt {get; set;} = DateTime.Now;
     public DateTime UpdatedAt {get; set;} = DateTime.Now;
