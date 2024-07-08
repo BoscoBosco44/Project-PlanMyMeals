@@ -38,10 +38,11 @@ body {
 }
 
 
-/* ------------ Meal Plan Page ------------- */
+/* ---------------------------------- Meal Plan Page ---------------------------------- */
 
 .pageBox {
-  border: 2px solid red;
+  /* border: 2px solid red; */
+  display: flex;
 }
 
 .mealBox {
@@ -49,8 +50,64 @@ body {
   border-radius: 1em;
 }
 
+/* ------------ Meal Display Partial ------------- */
 
-/* ------------ Add Recipe ------------- */
+.mdBox {
+  border: 3px solid gray;
+  border-radius: 1.5em;
+
+  width: 100%;
+  margin: 1em;
+
+  display: flex;
+}
+
+.mdLeftBox {
+  margin: 1em;
+
+}
+
+.mdMiddleBox {
+  margin: 1em;
+  height: 100%;
+  width: 100%;
+
+}
+
+.mdRightBox {
+  margin: 1em;
+  width: 100%;
+
+}
+
+.mdBoxContent {
+  display: flex;
+}
+
+.mdIngredientsBox {
+  /* border: solid 2px red; */
+  display: flex;
+}
+
+ul.mdIngredientsBox {
+  list-style-type: square;
+
+}
+
+.mdMealImg {
+  border: 2px solid black;
+  margin: 1em;
+  height: 70%;
+  width: 100%;
+}
+
+.mdSwapMealBtnBox {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1em;
+}
+
+/* ---------------------------------- Add Recipe Page ---------------------------------- */
 
 .body-Recipe {
   /* border: 2px solid red; */
@@ -125,3 +182,5 @@ body {
 .InstructionsBox {
   border: 2px solid gray;
 }
+
+
