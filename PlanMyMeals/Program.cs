@@ -1,6 +1,14 @@
 using Microsoft.EntityFrameworkCore;
 using PlanMyMeals.Models;
 
+using System.Net.Http.Headers;
+using System.Text.Json;
+using HttpClient client = new();
+client.DefaultRequestHeaders.Accept.Clear();
+client.DefaultRequestHeaders.Accept.Add(
+    new MediaTypeWithQualityHeaderValue("application/json"));
+
+
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -37,3 +45,13 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+
+static async Task<IngredientInfo> GetIngredientInfoAsync(HttpClient client, string url)
+{
+    await using Stream stream =
+    await client.GetStreamAsync(url);
+    IngredientInfo? Result =
+        await JsonSerializer.DeserializeAsync<IngredientInfo>(stream);
+    return Result;
+}
