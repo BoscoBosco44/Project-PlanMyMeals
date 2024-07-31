@@ -10,12 +10,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 
-//-----------
-private static HttpClient sharedClient = new()
-{
-    BaseAddress = new Uri("https://jsonplaceholder.typicode.com")
-};
-//-----------
 
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -47,3 +41,10 @@ app.MapControllerRoute(
 app.Run();
 
 
+
+//-----------
+// private static HttpClient sharedClient = new()
+// {
+//     BaseAddress = new Uri("https://jsonplaceholder.typicode.com")
+// };
+//-----------

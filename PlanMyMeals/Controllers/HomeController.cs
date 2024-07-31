@@ -16,6 +16,11 @@ public class HomeController : Controller
         _context = context;
     }
 
+    private static HttpClient sharedClient = new()
+    {
+        BaseAddress = new Uri("https://jsonplaceholder.typicode.com")
+    };
+
 //------------------------------- view routes ------------------------------------
 
 
@@ -26,6 +31,7 @@ public class HomeController : Controller
 
     public IActionResult Recipes()
     {
+        SpoonacularApi.GetAsync(sharedClient);
         return View();
     }
 
