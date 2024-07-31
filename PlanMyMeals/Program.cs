@@ -10,6 +10,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 
+//-----------
+private static HttpClient sharedClient = new()
+{
+    BaseAddress = new Uri("https://jsonplaceholder.typicode.com")
+};
+//-----------
+
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<MyContext>(options =>
