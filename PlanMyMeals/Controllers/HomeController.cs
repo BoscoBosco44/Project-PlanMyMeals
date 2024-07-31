@@ -18,7 +18,15 @@ public class HomeController : Controller
 
     private static HttpClient sharedClient = new()
     {
+        //-------
         BaseAddress = new Uri("https://jsonplaceholder.typicode.com")
+        //-------
+        // BaseAddress = new Uri("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/ingredients"),
+        // Headers =
+        // {
+        //     { "x-rapidapi-key", "16fe5f394dmsh681dffdca8ec923p105a46jsnb348004e73a3" },
+        //     { "x-rapidapi-host", "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com" },
+        // }
     };
 
 //------------------------------- view routes ------------------------------------
@@ -31,7 +39,9 @@ public class HomeController : Controller
 
     public IActionResult Recipes()
     {
+        SpoonacularApi.GetIngInfoAsync();
         SpoonacularApi.GetAsync(sharedClient);
+
         return View();
     }
 

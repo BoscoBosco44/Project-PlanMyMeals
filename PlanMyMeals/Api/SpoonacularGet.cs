@@ -1,12 +1,22 @@
 // // HttpClient lifecycle management best practices:
 
 
+public record class Ing(
+    string? Name = null,
+    int? Id = null
+
+);
+
 
 public class SpoonacularApi {
-    // private static HttpClient sharedClient = new()
-    // {
-    //     BaseAddress = new Uri("https://jsonplaceholder.typicode.com")
-    // };
+    private static HttpClient SpoonClient = new()
+    {
+        BaseAddress = new Uri("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/ingredients"),
+        DefaultRequestHeaders = {
+            { "x-rapidapi-key", "16fe5f394dmsh681dffdca8ec923p105a46jsnb348004e73a3" },
+            { "x-rapidapi-host", "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com" },
+        }
+    };
 
 
     public static async Task GetAsync(HttpClient httpClient)
@@ -28,8 +38,20 @@ public class SpoonacularApi {
         //     "completed": false
         //   }
     }
-}
 
+    public static async Task GetIngInfoAsync() 
+    // public static async Task GetIngInfoAsync(String name) 
+    {
+        Console.WriteLine("Getting Spoons");
+        using HttpResponseMessage response = await SpoonClient.GetAsync($"autocomplete?query=egg");
+
+        response.EnsureSuccessStatusCode().WriteRequestToConsole();
+
+        var jsonResponse = await response.Content.ReadAsByteArrayAsync();
+        Console.WriteLine($"{jsonResponse}\n" + "spoon responce");
+    }
+
+}
 
 static class HttpResponseMessageExtensions
 {
@@ -37,6 +59,7 @@ static class HttpResponseMessageExtensions
         {
             if (response is null)
             {
+                Console.Write("response failed or is null");
                 return;
             }
 
