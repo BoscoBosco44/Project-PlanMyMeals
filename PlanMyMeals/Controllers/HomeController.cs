@@ -21,9 +21,11 @@ public class HomeController : Controller
         //-------
         // BaseAddress = new Uri("https://jsonplaceholder.typicode.com")
         //-------
-        BaseAddress = new Uri("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/ingredients"),
+        // BaseAddress = new Uri("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/ingredients"),
+        BaseAddress = new Uri("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"),
         DefaultRequestHeaders =
         {
+            // { "x-rapidapi-key", "1e623056ca1c403d8a79ae81b15135d5" },
             { "x-rapidapi-key", "16fe5f394dmsh681dffdca8ec923p105a46jsnb348004e73a3" },
             { "x-rapidapi-host", "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com" }
         }

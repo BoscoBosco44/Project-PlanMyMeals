@@ -44,12 +44,13 @@ public class SpoonacularApi {
     {
         Console.WriteLine("Getting Spoons");
         // using HttpResponseMessage response = await SpoonClient.GetAsync($"autocomplete?query=egg");
-        using HttpResponseMessage response = await httpClient.GetAsync($"autocomplete?query=egg");
+        using HttpResponseMessage response = await httpClient.GetAsync($"food/ingredients/autocomplete?query=egg");
 
         response.EnsureSuccessStatusCode().WriteRequestToConsole();
 
-        var jsonResponse = await response.Content.ReadAsByteArrayAsync();
-        Console.WriteLine($"{jsonResponse}\n" + "spoon responce");
+        // var jsonResponse = await response.Content.ReadAsByteArrayAsync();
+        var jsonResponse = await response.Content.ReadAsStringAsync();
+        Console.WriteLine($"{jsonResponse}" + "spoon responce");
     }
 
 }
@@ -65,7 +66,8 @@ static class HttpResponseMessageExtensions
             }
 
             var request = response.RequestMessage;
-            Console.Write($"{response.RequestMessage} ");
+            Console.Write($"Response Messages:");
+            Console.Write($"{response?.RequestMessage} ");
             Console.Write($"{request?.Method} ");
             Console.Write($"{request?.RequestUri} ");
             Console.WriteLine($"HTTP/{request?.Version}");        
