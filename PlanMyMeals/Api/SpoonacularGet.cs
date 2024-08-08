@@ -19,28 +19,8 @@ public class SpoonacularApi {
     };
 
 
-    // public static async Task GetAsync(HttpClient httpClient)
-    // {
-    //     using HttpResponseMessage response = await httpClient.GetAsync("todos/3");
-        
-    //     response.EnsureSuccessStatusCode()
-    //         .WriteRequestToConsole();
-        
-    //     var jsonResponse = await response.Content.ReadAsStringAsync();
-    //     Console.WriteLine($"{jsonResponse}\n");
-
-    //     // Expected output:
-    //     //   GET https://jsonplaceholder.typicode.com/todos/3 HTTP/1.1
-    //     //   {
-    //     //     "userId": 1,
-    //     //     "id": 3,
-    //     //     "title": "fugiat veniam minus",
-    //     //     "completed": false
-    //     //   }
-    // }
 
     public static async Task GetIngInfoAsync(HttpClient httpClient) 
-    // public static async Task GetIngInfoAsync(String name) 
     {
         Console.WriteLine("Getting Spoons");
         using HttpResponseMessage response = await httpClient.GetAsync($"food/ingredients/autocomplete?query=egg&number=5&metaInformation=true");
@@ -50,7 +30,6 @@ public class SpoonacularApi {
         var jsonResponse = await response.Content.ReadAsStringAsync();
         Console.WriteLine($"{jsonResponse}" + "spoon responce");
 
-        return jsonResponse;
     }
 
 }
