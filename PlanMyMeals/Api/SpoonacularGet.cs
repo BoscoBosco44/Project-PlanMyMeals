@@ -43,14 +43,14 @@ public class SpoonacularApi {
     // public static async Task GetIngInfoAsync(String name) 
     {
         Console.WriteLine("Getting Spoons");
-        // using HttpResponseMessage response = await SpoonClient.GetAsync($"autocomplete?query=egg");
         using HttpResponseMessage response = await httpClient.GetAsync($"food/ingredients/autocomplete?query=egg&number=5&metaInformation=true");
 
         response.EnsureSuccessStatusCode().WriteRequestToConsole();
 
-        // var jsonResponse = await response.Content.ReadAsByteArrayAsync();
         var jsonResponse = await response.Content.ReadAsStringAsync();
         Console.WriteLine($"{jsonResponse}" + "spoon responce");
+
+        return jsonResponse;
     }
 
 }
