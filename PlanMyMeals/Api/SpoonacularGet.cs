@@ -1,6 +1,3 @@
-// // HttpClient lifecycle management best practices:
-
-
 using System.Text.Json;
 using PlanMyMeals.Models;
 
@@ -40,11 +37,24 @@ public class SpoonacularApi {
     }
 
 
-    public Meal ConvertIngJsonToMeal(List<IngredientJson> ings)
+    public Meal ConvertIngredientJsonToMeal(List<IngredientJson> ings)
     {
         //get meal from session
         //convert all IngredientJson to ingredient
+            //check ingredient name in DB
+            //if name exists, pull the ingredient and add it to a list
+            //else create a new ingredient, save it to DB, and add it to the list
+
         //add all ingredients to IngredientList in the meal in session
+
+        Meal thisMeal = new Meal();
+
+        foreach(IngredientJson ij in ings)
+        {
+            Console.WriteLine(ij.name);
+        }
+
+        return thisMeal;
     }
 
 

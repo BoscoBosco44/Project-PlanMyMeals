@@ -2,8 +2,6 @@ using Microsoft.EntityFrameworkCore;
 using PlanMyMeals.Models;
 
 
-
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -20,7 +18,6 @@ builder.Services.AddDbContext<MyContext>(options =>
 {
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });
-
 
 
 
@@ -44,11 +41,3 @@ app.MapControllerRoute(
 
 app.Run();
 
-
-
-//-----------
-// private static HttpClient sharedClient = new()
-// {
-//     BaseAddress = new Uri("https://jsonplaceholder.typicode.com")
-// };
-//-----------
