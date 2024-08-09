@@ -39,12 +39,26 @@ public class HomeController : Controller
         return View("MealPlan");
     }
 
-    public IActionResult Recipes()
-    {
-        SpoonacularApi.GetIngInfoAsync(sharedClient);
-        // SpoonacularApi.GetAsync(sharedClient);
+    // public IActionResult Recipes()
+    // {
+    //     SpoonacularApi.GetIngInfoAsync(sharedClient);
 
-        return View();
+    //     return View();
+    // }
+    public async Task<IActionResult> Recipes()
+    {
+        // using HttpResponseMessage response = await sharedClient.GetAsync("food/ingredients/autocomplete?query=egg&number=1");
+        // // using HttpResponseMessage response = await sharedClient.GetAsync("food/ingredients/autocomplete?query=egg&number=1&metaInformation=true");
+        // response.EnsureSuccessStatusCode();
+
+        // var jsonResponse = await response.Content.ReadAsStringAsync();
+        // List<IngredientJson>? ingredients = System.Text.Json.JsonSerializer.Deserialize<List<IngredientJson>>(jsonResponse);
+    
+        SpoonacularApi reader = new SpoonacularApi();
+        var ingList = await reader.GetIngInfoAsync();
+
+        // Pass the model to the view
+        return View(ingList);
     }
 
     public IActionResult Goals()

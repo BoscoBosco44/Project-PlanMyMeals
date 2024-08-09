@@ -14,7 +14,7 @@ public class Meal
     public int MealCarbs {get; set;}
     public int MealFat {get; set;}
 
-    public string MealImgLocation {get; set;} // Ask paul - how to store imgs
+    public string MealImgLocation {get; set;} 
 
     public List<Ingredient> IngredientList {get; set;} = []; // Ask paul
 

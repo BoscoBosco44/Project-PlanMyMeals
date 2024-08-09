@@ -9,6 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+//session setup
+builder.Services.AddHttpContextAccessor();  
+builder.Services.AddSession();  
 
 
 
@@ -29,6 +32,7 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
 }
 app.UseStaticFiles();
+app.UseSession(); //   ----------------------   session setup
 
 app.UseRouting();
 
