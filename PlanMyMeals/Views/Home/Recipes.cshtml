@@ -42,26 +42,11 @@
 
         </div>
 
-        <div class="IngredientBox">
-            <h3>Ingredients</h3>
-            <div class="margin-auto">
-                <input type="text" class="IngNameBox" placeholder="Name">
-            </div>
+            @await Html.PartialAsync("_AddIngredientsBox")
 
-            <div class="flex">
-                <input class="IngInfoBox" type="text" placeholder="Amount">
-                <input class="IngInfoBox" type="text" placeholder="Ing Range">
-                <div class="IngInfoBox">
-                    <label for="IngredientIsGrams">Is Grams?</label>
-                    <input type="checkbox">
-                </div>
-            </div>
 
-                <div class="IngListBox">
 
-                </div>
 
-        </div>
     </form>
 
 

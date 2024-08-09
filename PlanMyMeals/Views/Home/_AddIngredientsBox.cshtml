@@ -1,0 +1,43 @@
+
+
+
+<div class="IngredientBox">
+
+    <h3>Ingredients</h3>
+
+    <div class="margin-auto">
+        <input type="text" class="IngNameBox" placeholder="Name">
+    </div>
+
+    <div class="flex">
+        <input class="IngInfoBox" type="text" placeholder="Amount">
+        <input class="IngInfoBox" type="text" placeholder="Ing Range">
+        <div class="IngInfoBox">
+            <label for="IngredientIsGrams">Is Grams?</label>
+            <input type="checkbox">
+        </div>
+    </div>
+
+        <div class="IngListBox">
+
+        </div>
+
+</div>
+
+
+@* JavaSrript bellow ------------------------------------ (: *@
+<script>
+    //JavaScript fuction ting
+    function onInputChange() {
+        var inputValue = document.getElementById('IngNameBox').value;
+        console.log('Input changed to: ' + inputValue);
+
+        //send ingredient name to spoonacular
+
+        //
+    }
+
+    //adding event listener
+    document.getElementById('IngNameBox').addEventListener('input', onInputChange);
+
+</script>

@@ -24,7 +24,7 @@ public class SpoonacularApi {
     public async Task<List<IngredientJson>> GetIngInfoAsync() //removed static
     {
         Console.WriteLine("Getting Spoons");
-        using HttpResponseMessage response = await SpoonClient.GetAsync($"food/ingredients/autocomplete?query=egg&number=1&metaInformation=true");
+        using HttpResponseMessage response = await SpoonClient.GetAsync($"food/ingredients/autocomplete?query=egg&number=5&metaInformation=true");
 
         // response.EnsureSuccessStatusCode().WriteRequestToConsole();
 
@@ -37,7 +37,7 @@ public class SpoonacularApi {
     }
 
 
-    public Meal ConvertIngredientJsonToMeal(List<IngredientJson> ings)
+    public Meal ConvertIngredientJsonListToMeal(List<IngredientJson> ings, Meal thisMeal)
     {
         //get meal from session
         //convert all IngredientJson to ingredient
@@ -47,12 +47,20 @@ public class SpoonacularApi {
 
         //add all ingredients to IngredientList in the meal in session
 
-        Meal thisMeal = new Meal();
-
         foreach(IngredientJson ij in ings)
         {
             Console.WriteLine(ij.name);
-        }
+
+            Ingredient ing = new Ingredient();
+            ing.IngredientId = ij.id;
+            ing.IngredientName = ij.name;
+            
+            //check if ing exists in DB
+
+
+
+            thisMeal.IngredientList.Add(ing);
+        };
 
         return thisMeal;
     }

@@ -39,13 +39,15 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Recipes()
     {
-        //
+        //check if a new meal needs to be created in DB
+        Meal thisMeal = new Meal();
 
-        SpoonacularApi reader = new SpoonacularApi();
-        var ingList = await reader.GetIngInfoAsync();
+        // SpoonacularApi reader = new SpoonacularApi();
+        // var ingList = await reader.GetIngInfoAsync();
 
-        // Pass the model to the view
-        return View(ingList);
+        // thisMeal = reader.ConvertIngredientJsonListToMeal(ingList, thisMeal);
+
+        return View(thisMeal);
     }
 
     public IActionResult Goals()
