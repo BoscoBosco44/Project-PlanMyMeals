@@ -1,12 +1,14 @@
 
-
+@{
+    
+}
 
 <div class="IngredientBox">
 
     <h3>Ingredients</h3>
 
     <div class="margin-auto">
-        <input type="text" class="IngNameBox" placeholder="Name">
+        <input type="text" class="IngNameBox" id="IngNameBox" oninput="@{ SpoonacularGet.GetIngInfoAsync() }" placeholder="Search Ingredient Name">
     </div>
 
     <div class="flex">
@@ -27,14 +29,21 @@
 
 @* JavaSrript bellow ------------------------------------ (: *@
 <script>
-    //JavaScript fuction ting
-    function onInputChange() {
-        var inputValue = document.getElementById('IngNameBox').value;
-        console.log('Input changed to: ' + inputValue);
+    document.addEventListener('DOMContentLoaded', function() {
 
-        //send ingredient name to spoonacular
+        async function onInputChange() {
+            var inputValue = document.getElementById('IngNameBox').value;
+            console.log('Input changed to: ' + inputValue);
 
-        //
+            //send ingredient name to spoonacular
+            @{ 
+                SpoonacularApi reader = new SpoonacularApi(); 
+                Console.WriteLine("this is happening -------------");
+            }
+            var ingList = await reader.GetIngInfoAsync(inputValue);
+            
+            //
+        }
     }
 
     //adding event listener
