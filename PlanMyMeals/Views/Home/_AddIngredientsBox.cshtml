@@ -1,14 +1,51 @@
+ @model Ingredient
 
-@{
-    
-}
 
 <div class="IngredientBox">
 
     <h3>Ingredients</h3>
 
-    <div class="margin-auto">
-        <input type="text" class="IngNameBox" id="IngNameBox" oninput="@{ SpoonacularGet.GetIngInfoAsync() }" placeholder="Search Ingredient Name">
+    <form action="" asp-constoller="Home" method="post" class="flex">
+        <div class="InfoBox">
+            <div class="InfoBoxSpacing">
+                <label class="paddingR-1" asp-for="IngredientName">Name</label>
+                <input asp-for="IngredientName">
+                <span asp-validaton-for="MealName"></span>
+            </div>
+
+            <div class="InfoBoxSpacing">
+                <label class="paddingR-1" asp-for="IngCaloriesPerGram">Calories</label>
+                <input asp-for="IngCaloriesPerGram">
+                <span asp-validaton-for="MealName"></span>
+            </div>
+
+            <div class="InfoBoxSpacing">
+                <label class="paddingR-1" asp-for="IngProteinPerGram">Protein</label>
+                <input asp-for="IngProteinPerGram">
+                <span asp-validaton-for="MealName"></span>
+            </div>
+
+            <div class="InfoBoxSpacing">
+                <label class="paddingR-1" asp-for="IngCarbsPerGram">Carbs</label>
+                <input asp-for="IngCarbsPerGram">
+                <span asp-validaton-for="MealName"></span>
+            </div>
+
+            <div class="InfoBoxSpacing">
+                <label class="paddingR-1" asp-for="IngFatPerGram">Fat</label>
+                <input asp-for="IngFatPerGram">
+                <span asp-validaton-for="MealName"></span>
+            </div>
+        </div>
+
+    </form>
+
+
+
+
+    @* <div class="margin-auto">
+        @* <input type="text" class="IngNameBox" id="IngNameBox" oninput="@{ SpoonacularGet.GetIngInfoAsync() }" placeholder="Search Ingredient Name"> 
+
     </div>
 
     <div class="flex">
@@ -22,13 +59,13 @@
 
         <div class="IngListBox">
 
-        </div>
+        </div> *@
 
 </div>
 
 
-@* JavaSrript bellow ------------------------------------ (: *@
-<script>
+ @* JavaSrript bellow ------------------------------------ (:  *@
+@* <script>
     document.addEventListener('DOMContentLoaded', function() {
 
         async function onInputChange() {
@@ -49,4 +86,4 @@
     //adding event listener
     document.getElementById('IngNameBox').addEventListener('input', onInputChange);
 
-</script>
+</script>  *@
