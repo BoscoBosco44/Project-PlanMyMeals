@@ -1,4 +1,7 @@
  @model Ingredient
+ @{
+
+ }
 
 
 <div class="IngredientBox">
@@ -10,31 +13,31 @@
             <div class="InfoBoxSpacing">
                 <label class="paddingR-1" asp-for="IngredientName">Name</label>
                 <input asp-for="IngredientName">
-                <span asp-validaton-for="MealName"></span>
+                <span asp-validaton-for="IngredientName"></span>
             </div>
 
             <div class="InfoBoxSpacing">
                 <label class="paddingR-1" asp-for="IngCaloriesPerGram">Calories</label>
                 <input asp-for="IngCaloriesPerGram">
-                <span asp-validaton-for="MealName"></span>
+                <span asp-validaton-for="IngCaloriesPerGram"></span>
             </div>
 
             <div class="InfoBoxSpacing">
                 <label class="paddingR-1" asp-for="IngProteinPerGram">Protein</label>
                 <input asp-for="IngProteinPerGram">
-                <span asp-validaton-for="MealName"></span>
+                <span asp-validaton-for="IngProteinPerGram"></span>
             </div>
 
             <div class="InfoBoxSpacing">
                 <label class="paddingR-1" asp-for="IngCarbsPerGram">Carbs</label>
                 <input asp-for="IngCarbsPerGram">
-                <span asp-validaton-for="MealName"></span>
+                <span asp-validaton-for="IngCarbsPerGram"></span>
             </div>
 
             <div class="InfoBoxSpacing">
                 <label class="paddingR-1" asp-for="IngFatPerGram">Fat</label>
                 <input asp-for="IngFatPerGram">
-                <span asp-validaton-for="MealName"></span>
+                <span asp-validaton-for="IngFatPerGram"></span>
             </div>
         </div>
 

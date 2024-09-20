@@ -1,8 +1,4 @@
 ﻿@model Meal
-@{
-    ViewData["Title"] = "Home Page";
-}
-
 
 <div class="body-Recipe">
     <h1 class="AddRecipeText">Add Recipe</h1>
@@ -42,8 +38,8 @@
 
         </div>
 
-            @await Html.PartialAsync("_AddIngredientsBox")
             @await Html.PartialAsync("_5IngredientDisplay")
+            @await Html.PartialAsync("_AddIngredientsBox")
 
 
 

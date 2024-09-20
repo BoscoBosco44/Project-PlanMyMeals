@@ -37,10 +37,10 @@ public class HomeController : Controller
         return View("MealPlan");
     }
 
-    public async Task<IActionResult> Recipes()
+    public IActionResult Recipes()
     {
         //check if a new meal needs to be created in DB
-        Meal thisMeal = new Meal();
+        Meal thisMeal = new Meal(); //how tf?
 
         // SpoonacularApi reader = new SpoonacularApi();
         // var ingList = await reader.GetIngInfoAsync();
