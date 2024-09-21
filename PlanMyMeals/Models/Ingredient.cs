@@ -13,6 +13,7 @@ public class Ingredient
     public bool IngredientIsGrams {get; set;}
     public int IngredientRange {get; set;}
 
+
     public int IngCaloriesPerGram {get; set;}
     public int IngProteinPerGram {get; set;}
     public int IngCarbsPerGram {get; set;}
