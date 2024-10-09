@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\peter\\OneDrive\\Desktop\\Coding Projects\\Project-PlanMyMeals\\PlanMyMeals\\PlanMyMeals.csproj": {}
+    "C:\\Users\\peter\\Desktop\\Coding Projects\\Project-PlanMyMeals\\PlanMyMeals\\PlanMyMeals.csproj": {}
   },
   "projects": {
-    "C:\\Users\\peter\\OneDrive\\Desktop\\Coding Projects\\Project-PlanMyMeals\\PlanMyMeals\\PlanMyMeals.csproj": {
+    "C:\\Users\\peter\\Desktop\\Coding Projects\\Project-PlanMyMeals\\PlanMyMeals\\PlanMyMeals.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\peter\\OneDrive\\Desktop\\Coding Projects\\Project-PlanMyMeals\\PlanMyMeals\\PlanMyMeals.csproj",
+        "projectUniqueName": "C:\\Users\\peter\\Desktop\\Coding Projects\\Project-PlanMyMeals\\PlanMyMeals\\PlanMyMeals.csproj",
         "projectName": "PlanMyMeals",
-        "projectPath": "C:\\Users\\peter\\OneDrive\\Desktop\\Coding Projects\\Project-PlanMyMeals\\PlanMyMeals\\PlanMyMeals.csproj",
+        "projectPath": "C:\\Users\\peter\\Desktop\\Coding Projects\\Project-PlanMyMeals\\PlanMyMeals\\PlanMyMeals.csproj",
         "packagesPath": "C:\\Users\\peter\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\peter\\OneDrive\\Desktop\\Coding Projects\\Project-PlanMyMeals\\PlanMyMeals\\obj\\",
+        "outputPath": "C:\\Users\\peter\\Desktop\\Coding Projects\\Project-PlanMyMeals\\PlanMyMeals\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
