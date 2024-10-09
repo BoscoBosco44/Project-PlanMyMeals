@@ -8,16 +8,15 @@ public class Ingredient
     [Key]
     public int IngredientId {get; set;}
 
-    public string IngredientName {get; set;}
-    public int IngredientAmount {get; set;}
-    public bool IngredientIsGrams {get; set;}
-    public int IngredientRange {get; set;}
+    public string Name {get; set;}
+    public int ProteinPerGram { get; set; }
+    public int CarbPerGram { get; set; }
+    public int FatPerGram { get; set; }
+    public int CaloriesPerGram { get; set; }
 
 
-    public int IngCaloriesPerGram {get; set;}
-    public int IngProteinPerGram {get; set;}
-    public int IngCarbsPerGram {get; set;}
-    public int IngFatPerGram {get; set;}
+
+
 
 
     public DateTime CreatedAt {get; set;} = DateTime.Now;
