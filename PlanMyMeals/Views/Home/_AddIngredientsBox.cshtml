@@ -1,4 +1,3 @@
- @model Ingredient
  @{
 
  }
@@ -9,84 +8,44 @@
     <h3>Ingredients</h3>
 
     <form action="" asp-constoller="Home" method="post" class="flex">
-        <div class="InfoBox">
+        @*<div class="InfoBox">
             <div class="InfoBoxSpacing">
-                <label class="paddingR-1" asp-for="IngredientName">Name</label>
-                <input asp-for="IngredientName">
-                <span asp-validaton-for="IngredientName"></span>
+                <label class="paddingR-1" asp-for="Name">Name</label>
+                <input asp-for="Name">
+                <span asp-validaton-for="Name"></span>
             </div>
 
             <div class="InfoBoxSpacing">
-                <label class="paddingR-1" asp-for="IngCaloriesPerGram">Calories</label>
-                <input asp-for="IngCaloriesPerGram">
-                <span asp-validaton-for="IngCaloriesPerGram"></span>
+                <label class="paddingR-1" asp-for="CaloriesPer100Gram">Calories</label>
+                <input asp-for="CaloriesPer100Gram">
+                <span asp-validaton-for="CaloriesPer100Gram"></span>
             </div>
 
             <div class="InfoBoxSpacing">
-                <label class="paddingR-1" asp-for="IngProteinPerGram">Protein</label>
-                <input asp-for="IngProteinPerGram">
-                <span asp-validaton-for="IngProteinPerGram"></span>
+                <label class="paddingR-1" asp-for="ProteinPercent">Protein</label>
+                <input asp-for="ProteinPercent">
+                <span asp-validaton-for="ProteinPercent"></span>
             </div>
 
             <div class="InfoBoxSpacing">
-                <label class="paddingR-1" asp-for="IngCarbsPerGram">Carbs</label>
-                <input asp-for="IngCarbsPerGram">
-                <span asp-validaton-for="IngCarbsPerGram"></span>
+                <label class="paddingR-1" asp-for="CarbPercent">Carbs</label>
+                <input asp-for="CarbPercent">
+                <span asp-validaton-for="CarbPercent"></span>
             </div>
 
             <div class="InfoBoxSpacing">
-                <label class="paddingR-1" asp-for="IngFatPerGram">Fat</label>
-                <input asp-for="IngFatPerGram">
-                <span asp-validaton-for="IngFatPerGram"></span>
+                <label class="paddingR-1" asp-for="FatPercent">Fat</label>
+                <input asp-for="FatPercent">
+                <span asp-validaton-for="FatPercent"></span>
             </div>
-        </div>
+        </div>*@
 
     </form>
 
 
 
 
-    @* <div class="margin-auto">
-        @* <input type="text" class="IngNameBox" id="IngNameBox" oninput="@{ SpoonacularGet.GetIngInfoAsync() }" placeholder="Search Ingredient Name"> 
-
-    </div>
-
-    <div class="flex">
-        <input class="IngInfoBox" type="text" placeholder="Amount">
-        <input class="IngInfoBox" type="text" placeholder="Ing Range">
-        <div class="IngInfoBox">
-            <label for="IngredientIsGrams">Is Grams?</label>
-            <input type="checkbox">
-        </div>
-    </div>
-
-        <div class="IngListBox">
-
-        </div> *@
 
 </div>
 
 
- @* JavaSrript bellow ------------------------------------ (:  *@
-@* <script>
-    document.addEventListener('DOMContentLoaded', function() {
-
-        async function onInputChange() {
-            var inputValue = document.getElementById('IngNameBox').value;
-            console.log('Input changed to: ' + inputValue);
-
-            //send ingredient name to spoonacular
-            @{ 
-                SpoonacularApi reader = new SpoonacularApi(); 
-                Console.WriteLine("this is happening -------------");
-            }
-            var ingList = await reader.GetIngInfoAsync(inputValue);
-            
-            //
-        }
-    }
-
-    //adding event listener
-    document.getElementById('IngNameBox').addEventListener('input', onInputChange);
-
-</script>  *@
