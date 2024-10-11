@@ -19,6 +19,8 @@ public class Meal
     public List<Ingredient> IngredientList {get; set;} = []; // Ask paul
 
     public DateTime CreatedAt {get; set;} = DateTime.Now;
+
+
     public DateTime UpdatedAt {get; set;} = DateTime.Now;
 
 }
