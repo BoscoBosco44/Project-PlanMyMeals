@@ -9,11 +9,11 @@ public class Ingredient
     public int IngredientId {get; set;}
 
     public string Name {get; set;}
-    public int ProteinPerGram { get; set; }
-    public int CarbPerGram { get; set; }
-    public int FatPerGram { get; set; }
-    public int CaloriesPerGram { get; set; }
-
+    public int ProteinPercent { get; set; }
+    public int CarbPercent { get; set; }
+    public int FatPercent { get; set; }
+    public int CaloriesPer100Gram { get; set; }
+    
 
 
 
