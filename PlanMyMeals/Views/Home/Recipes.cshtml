@@ -7,24 +7,48 @@
     <div class="AddRecipeLine"></div>
 
     <form asp-action="" asp-constoller="Home" method="post" class="flex">
-        <div class="NameAndInstructionsBox">
-            <div class="InfoBoxSpacing">
-                <label class="paddingR-1" asp-for="thisMeal.Name">Name</label>
-                <input asp-for="thisMeal.Name">
-                <span asp-validaton-for="thisMeal.Name"></span>
-            </div>
-            <div class="InfoBoxSpacing">
-                <label class="paddingR-1" asp-for="thisMeal.Instructions">Instructions</label>
-                <input class="InstructionsInputBox" asp-for="thisMeal.Instructions">
-                <span asp-validaton-for="thisMeal.Instructions"></span>
-            </div>
 
+        <div class="left-main3">
 
+            <div class="NameAndInstructionsBox">
+                <div class="InfoBoxSpacing">
+                    <label class="paddingR-1" asp-for="thisMeal.Name">Name</label>
+                    <input asp-for="thisMeal.Name">
+                    <span asp-validaton-for="thisMeal.Name"></span>
+                </div>
+                <div class="InfoBoxSpacing">
+                    <label class="paddingR-1" asp-for="thisMeal.Instructions">Instructions</label>
+                    <input class="InstructionsInputBox" asp-for="thisMeal.Instructions">
+                    <span asp-validaton-for="thisMeal.Instructions"></span>
+                </div>
 
         </div>
 
-        @*@await Html.PartialAsync("_5IngredientDisplay")*@
-        @await Html.PartialAsync("_IngredientsListBox")
+            </div>
+
+        <div class="center-main3">
+            <h3>Recipe's Ingredients</h3>
+
+            <ul>
+                @foreach(MealIngredient mIng in Model.mealsIngredients) {
+                <li>@mIng.Id</li>
+                }
+
+
+            </ul>
+        </div>
+
+        <div class="right-main3">
+            <h3>Ingredient search:</h3>
+
+            <ul>
+                @foreach(Ingredient ing in Model.allIngredients) {
+                    <li class="btn-primary" onclick="@Model.addIngToMeal(Model.thisMeal.MealId, Model.mealsIngredients, ing)">@ing.Name</li>
+                }
+                
+                
+            </ul>
+        </div>
 
 
 

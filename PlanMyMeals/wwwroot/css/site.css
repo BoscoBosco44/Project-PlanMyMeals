@@ -38,6 +38,35 @@ body {
 }
 
 
+
+/* --------- 3 Vertical Boxes body layout -------- */
+
+.left-main3 {
+    width: 33%;
+    /* border: 1px solid red; */
+    text-align: center;
+}
+
+.center-main3 {
+    width: 33%;
+    /* border: 1px solid red; */
+
+    display: flex;
+    flex-direction: column;
+    padding-top: 2em;
+    text-align: center;
+}
+
+.right-main3 {
+    width: 33%;
+    /* border: 1px solid red; */
+    text-align: center;
+}
+
+
+
+
+
 /* ---------------------------------- Meal Plan Page ---------------------------------- */
 
 .pageBox {
