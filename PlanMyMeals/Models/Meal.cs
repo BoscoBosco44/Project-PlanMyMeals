@@ -13,10 +13,13 @@ public class Meal
     public string Instructions { get; set; }
 
 
-    public string MealImgLocation {get; set;} 
+    public string MealImgLocation {get; set;}
 
-    public List<Ingredient> IngredientList {get; set;} = []; // Ask paul
 
+
+
+    //nav props
+    public List<MealIngredient> MealIngredientsList {get; set;} //should be a list of IngredientIDs
 
 
 

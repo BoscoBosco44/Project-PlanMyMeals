@@ -18,6 +18,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\peter\Desktop\Coding Projects\Project-PlanMyMeals\PlanMyMeals
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/peter/Desktop/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Home/AddIngredient.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGRJbmdyZWRpZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/peter/Desktop/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Home/Goals.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxHb2Fscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -34,8 +38,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfNUluZ3JlZGllbnREaXNwbGF5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/peter/Desktop/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Home/_AddIngredientsBox.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfQWRkSW5ncmVkaWVudHNCb3guY3NodG1s
+[C:/Users/peter/Desktop/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Home/_IngredientsListBox.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfSW5ncmVkaWVudHNMaXN0Qm94LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/peter/Desktop/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Home/_MealDisplay.cshtml]

@@ -1,45 +1,30 @@
-﻿@model Meal
+﻿@model RecipeViewModel
+
+
 
 <div class="body-Recipe">
     <h1 class="AddRecipeText">Add Recipe</h1>
     <div class="AddRecipeLine"></div>
 
-    <form action="" asp-constoller="Home" method="post" class="flex">
-        <div class="InfoBox">
+    <form asp-action="" asp-constoller="Home" method="post" class="flex">
+        <div class="NameAndInstructionsBox">
             <div class="InfoBoxSpacing">
-                <label class="paddingR-1" asp-for="Name">Name</label>
-                <input asp-for="Name">
-                <span asp-validaton-for="Name"></span>
+                <label class="paddingR-1" asp-for="thisMeal.Name">Name</label>
+                <input asp-for="thisMeal.Name">
+                <span asp-validaton-for="thisMeal.Name"></span>
+            </div>
+            <div class="InfoBoxSpacing">
+                <label class="paddingR-1" asp-for="thisMeal.Instructions">Instructions</label>
+                <input class="InstructionsInputBox" asp-for="thisMeal.Instructions">
+                <span asp-validaton-for="thisMeal.Instructions"></span>
             </div>
 
-            <div class="InfoBoxSpacing">
-                <label class="paddingR-1" asp-for="Name">Calories</label>
-                <input asp-for="Name">
-                <span asp-validaton-for="Name"></span>
-            </div>
 
-            <div class="InfoBoxSpacing">
-                <label class="paddingR-1" asp-for="Name">Protein</label>
-                <input asp-for="Name">
-                <span asp-validaton-for="Name"></span>
-            </div>
-
-            <div class="InfoBoxSpacing">
-                <label class="paddingR-1" asp-for="Name">Carbs</label>
-                <input asp-for="Name">
-                <span asp-validaton-for="Name"></span>
-            </div>
-
-            <div class="InfoBoxSpacing">
-                <label class="paddingR-1" asp-for="Name">Fat</label>
-                <input asp-for="Name">
-                <span asp-validaton-for="Name"></span>
-            </div>
 
         </div>
 
-            @*@await Html.PartialAsync("_5IngredientDisplay")*@
-            @await Html.PartialAsync("_AddIngredientsBox")
+        @*@await Html.PartialAsync("_5IngredientDisplay")*@
+        @await Html.PartialAsync("_IngredientsListBox")
 
 
 

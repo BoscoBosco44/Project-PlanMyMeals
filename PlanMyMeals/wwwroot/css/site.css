@@ -110,7 +110,7 @@ ul.mdIngredientsBox {
 /* ---------------------------------- Add Recipe Page ---------------------------------- */
 
 .body-Recipe {
-  /* border: 2px solid red; */
+   border: 2px solid red; 
   
 }
 
@@ -127,8 +127,8 @@ ul.mdIngredientsBox {
 
 /* --- Info Box --- */
 
-.InfoBox {
-  /* border: 2px solid gray; */
+.NameAndInstructionsBox {
+  border: 2px solid gray; 
   margin: 1em;
   margin-top: 4.5em;
 }
@@ -140,6 +140,10 @@ ul.mdIngredientsBox {
   
   padding-bottom: 1em;
   
+}
+
+.InstructionsInputBox {
+    height: 30%;
 }
 
 /* --- Ingredients Box --- */
