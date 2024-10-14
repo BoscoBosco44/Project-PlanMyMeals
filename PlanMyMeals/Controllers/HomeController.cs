@@ -88,6 +88,15 @@ public class HomeController : Controller
         }
     }
 
+    [HttpPost("mealIngredient/create")]
+    public IActionResult CreateMealIngredient(MealIngredient newMeal) {
+
+
+
+
+        return View(Recipes);
+    }
+
 
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

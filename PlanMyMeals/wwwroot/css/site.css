@@ -140,6 +140,8 @@ ul.mdIngredientsBox {
 
 .body-Recipe {
    border: 2px solid red; 
+   height:40em;
+   
   
 }
 
@@ -174,6 +176,27 @@ ul.mdIngredientsBox {
 .InstructionsInputBox {
     height: 30%;
 }
+
+/* --- Ingredient amount popup --- */
+
+.IngAmountPopup {
+    background-color: gray;
+    z-index: 3;
+    border-radius: 2em;
+    width: 50%;
+    height: 50%;
+
+    display: none;
+
+    position: fixed;
+    bottom: 5em;
+    right: 5em;
+}
+
+/* --- ----------------------- --- */
+
+
+
 
 /* --- Ingredients Box --- */
 
