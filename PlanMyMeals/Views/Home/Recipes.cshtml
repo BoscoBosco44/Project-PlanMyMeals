@@ -1,7 +1,6 @@
 ﻿@model RecipeViewModel
 
 
-
 <div class="body-Recipe">
     <h1 class="AddRecipeText">Add Recipe</h1>
     <div class="AddRecipeLine"></div>
@@ -40,18 +39,27 @@
 
         <div class="right-main3">
             <h3>Ingredient search:</h3>
+            <input type="text" oninput="" placeholder="Search..."/>
+
+            <ul id="ingredientListDisplay">
+
+            </ul>
+
 
             <ul>
                 @foreach(Ingredient ing in Model.allIngredients) {
-                    <li class="btn-primary" onclick="@Model.addIngToMeal(Model.thisMeal.MealId, Model.mealsIngredients, ing)">@ing.Name</li>
+                <li class="btn-primary" onclick="">@ing.Name</li>
+
                 }
-                
-                
+                @*//1. create form and search box
+                    2. when typing in search box,
+                        populate form w search through ingList and display matching ings in a list as buttons
+                    3. when a ing button is clicked,
+                        run a crud route to create a MealIngredient and display them
+                *@
+
             </ul>
         </div>
-
-
-
 
     </form>
 
