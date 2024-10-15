@@ -91,12 +91,14 @@ public class HomeController : Controller
     [HttpPost("mealIngredient/create")]
     public IActionResult CreateMealIngredient(RecipeViewModel rvm) {
 
-        Console.WriteLine("entered create meal--------------------");
-        Console.WriteLine("entered create meal");
-        Console.WriteLine("entered create meal");
+        Console.WriteLine("-------------------- entered create meal --------------------");
+        Console.WriteLine("ingId: " + rvm.ingId);
+        Console.WriteLine("mealId: " + rvm.mealId); //meal has not been created yet
+        Console.WriteLine("amount: " + rvm.amount);
 
 
-        return View("Recipes", rvm);
+
+        return RedirectToAction("Recipes", rvm);
     }
 
 
