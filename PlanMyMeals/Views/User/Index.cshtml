@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_EmptyLayout";
+}
+
+<div class="flex">
+
+    <div class="left-main2">
+        @await Html.PartialAsync("_RegForm")
+
+    </div>
+
+    <div class="right-main2">
+        @await Html.PartialAsync("_LogForm")
+    </div>
+
+
+
+
+</div>
