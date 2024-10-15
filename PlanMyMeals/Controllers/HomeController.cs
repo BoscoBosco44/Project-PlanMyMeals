@@ -89,12 +89,14 @@ public class HomeController : Controller
     }
 
     [HttpPost("mealIngredient/create")]
-    public IActionResult CreateMealIngredient(MealIngredient newMeal) {
+    public IActionResult CreateMealIngredient(RecipeViewModel rvm) {
+
+        Console.WriteLine("entered create meal--------------------");
+        Console.WriteLine("entered create meal");
+        Console.WriteLine("entered create meal");
 
 
-
-
-        return View(Recipes);
+        return View("Recipes", rvm);
     }
 
 

@@ -1,4 +1,6 @@
 using PlanMyMeals.Models;
+using System.ComponentModel.DataAnnotations;
+
 
 public class RecipeViewModel
 {
@@ -8,21 +10,23 @@ public class RecipeViewModel
 
 
 
-
-
+    public int ingId { get; set; }
+    public int mealId { get; set; }
+    [Required]
+    public int amount { get; set; }
 
     //functions
-    public List<MealIngredient> addIngToMeal(Meal m, List<MealIngredient> mList, Ingredient mealIng)
-    {
+    //public List<MealIngredient> addIngToMeal(Meal m, List<MealIngredient> mList, Ingredient mealIng)
+    //{
 
-        MealIngredient newIng = new MealIngredient();
-        newIng.MealId = m.MealId;
-        newIng.IngredientId = mealIng.IngredientId;
+    //    MealIngredient newIng = new MealIngredient();
+    //    newIng.MealId = m.MealId;
+    //    newIng.IngredientId = mealIng.IngredientId;
 
-        mList.Add(newIng);
-        Console.WriteLine(newIng);
-        return mList;
-    }
+    //    mList.Add(newIng);
+    //    Console.WriteLine(newIng);
+    //    return mList;
+    //}
 
 
 }

@@ -13,12 +13,12 @@
                 <div class="InfoBoxSpacing">
                     <label class="paddingR-1" asp-for="thisMeal.Name">Name</label>
                     <input asp-for="thisMeal.Name">
-                    <span asp-validaton-for="thisMeal.Name"></span>
+                    <span asp-validation-for="thisMeal.Name"></span>
                 </div>
                 <div class="InfoBoxSpacing">
                     <label class="paddingR-1" asp-for="thisMeal.Instructions">Instructions</label>
                     <input class="InstructionsInputBox" asp-for="thisMeal.Instructions">
-                    <span asp-validaton-for="thisMeal.Instructions"></span>
+                    <span asp-validation-for="thisMeal.Instructions"></span>
                 </div>
 
             </div>
@@ -46,7 +46,7 @@
             <ul id="ingredientListDisplay">
                 @foreach(Ingredient ing in Model.allIngredients) {
                 <li class="ingredient-item-QSA" data-name="@ing.Name">
-                    <button type="button" class="btn-primary" onclick="addIngredientToRecipe()" name="@ing.Name">@ing.Name</button>
+                    <button type="button" class="btn-primary" onclick="addIngredientToRecipe(this)" name="@ing.Name" id="@ing.IngredientId">@ing.Name</button>
                 </li>
                 }
             </ul>
@@ -64,16 +64,18 @@
 
 <div class="IngAmountPopup" id="IngAmountPopup">
     <h3>Enter amout in grams:</h3>
-    <form asp-for="" asp-controller="" method="post" class="">
+    <form asp-action="CreateMealIngredient" asp-controller="home" method="post" class="">
 
         <div id="amountInputIdDiv" >
             <input id="amountInputId" />
 
         </div>
 
-        <input placeholder="Amount in grams" />
+        <input placeholder="Amount in grams"/>
+
 
         <button type="submit" class="btn-primary">Add Ingredient to recipe</button>
+        <button type="button" class="btn-primary" onclick="hidePopup()">Back</button>
     </form>
 </div>
 
@@ -98,18 +100,17 @@
 
     
 
-    function addIngredientToRecipe() {
+    function addIngredientToRecipe(element) {
         //1. show popup
         console.log("showing popup");
-        showPopup();
+        console.log("showing element.name: " + element.name);
+        showPopup();                 
 
         //2. get ing name and put it in popup
-        window.onclick = e => {
-            console.log(e.target.name);
-            var str = e.target.name;
-            console.log(`<input value="${str}" />`);
-            document.getElementById('amountInputIdDiv').innerHTML = `<input value=${str} />`;
-        }
+        console.log(`<input value="${element.name}" />`);
+        console.log(`<input value="${element.id}" />`);
+        document.getElementById('amountInputIdDiv').innerHTML = `<input id=${element.id} value=${element.name} asp-for="ingId"/>`;
+        
 
         //3. after user inputs amout, create MealIngredient by sending info to home controller, running curd routes and re rendering this view
         //4. display MealIngredient
