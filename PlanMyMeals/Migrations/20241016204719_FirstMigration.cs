@@ -56,7 +56,28 @@ namespace PlanMyMeals.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "MealIngredient",
+                name: "Users",
+                columns: table => new
+                {
+                    UserId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Username = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Email = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Password = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.UserId);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "MealIngredients",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -69,9 +90,9 @@ namespace PlanMyMeals.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MealIngredient", x => x.Id);
+                    table.PrimaryKey("PK_MealIngredients", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_MealIngredient_Meals_MealId",
+                        name: "FK_MealIngredients_Meals_MealId",
                         column: x => x.MealId,
                         principalTable: "Meals",
                         principalColumn: "MealId",
@@ -80,8 +101,8 @@ namespace PlanMyMeals.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MealIngredient_MealId",
-                table: "MealIngredient",
+                name: "IX_MealIngredients_MealId",
+                table: "MealIngredients",
                 column: "MealId");
         }
 
@@ -91,7 +112,10 @@ namespace PlanMyMeals.Migrations
                 name: "Ingredients");
 
             migrationBuilder.DropTable(
-                name: "MealIngredient");
+                name: "MealIngredients");
+
+            migrationBuilder.DropTable(
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "Meals");

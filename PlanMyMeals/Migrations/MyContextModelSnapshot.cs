@@ -106,7 +106,7 @@ namespace PlanMyMeals.Migrations
 
                     b.HasIndex("MealId");
 
-                    b.ToTable("MealIngredient");
+                    b.ToTable("MealIngredients");
                 });
 
             modelBuilder.Entity("PlanMyMeals.Models.User", b =>

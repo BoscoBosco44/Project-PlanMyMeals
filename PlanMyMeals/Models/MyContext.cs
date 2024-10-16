@@ -10,7 +10,7 @@ public class MyContext : DbContext
 
     public DbSet<Meal> Meals {get; set;}
     public DbSet<Ingredient> Ingredients {get; set;}
+    public DbSet<MealIngredient> MealIngredients {get; set;}
     public DbSet<User> Users {get; set;}
-    // Needs a joining table to hold/controll list of ingredients
 
 }

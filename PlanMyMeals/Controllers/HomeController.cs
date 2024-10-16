@@ -8,7 +8,6 @@ namespace PlanMyMeals.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-
     private MyContext _context;
 
     public HomeController(ILogger<HomeController> logger, MyContext context)

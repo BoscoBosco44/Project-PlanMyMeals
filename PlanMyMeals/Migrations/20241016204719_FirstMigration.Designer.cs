@@ -11,8 +11,8 @@ using PlanMyMeals.Models;
 namespace PlanMyMeals.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20241016192705_SecondMigration")]
-    partial class SecondMigration
+    [Migration("20241016204719_FirstMigration")]
+    partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -108,7 +108,7 @@ namespace PlanMyMeals.Migrations
 
                     b.HasIndex("MealId");
 
-                    b.ToTable("MealIngredient");
+                    b.ToTable("MealIngredients");
                 });
 
             modelBuilder.Entity("PlanMyMeals.Models.User", b =>

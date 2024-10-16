@@ -1,11 +1,12 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
 using PlanMyMeals.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace PlanMyMeals.Controllers;
 
-public class UserController : Controller 
+public class UserController : Controller
 {
     private readonly ILogger<UserController> _logger;
     private MyContext _context;
@@ -21,15 +22,10 @@ public class UserController : Controller
 
 
     [HttpGet("login")]
-    public IActionResult Login() 
+    public IActionResult Index() 
     {
         return View("Index");
     }
-
-
-
-
-
 
 
     //------------------------------- CRUD routes ------------------------------------
@@ -41,8 +37,23 @@ public class UserController : Controller
         {
             Console.WriteLine("New user is valid: adding user");
 
+            //create and use PasswordHasher Obj
+            PasswordHasher<User> hasher = new();
+            newUser.Password = hasher.HashPassword(newUser, newUser.Password); //overriding newUser's password w a hashed vertion
 
-            return View("Index", "Home");
+            //add to db
+            _context.Users.Add(newUser);
+            _context.SaveChanges();
+
+            //login newUser
+            HttpContext.Session.SetInt32("UserId", newUser.UserId);
+            HttpContext.Session.SetString("Username", newUser.Username);
+
+            //Session check
+            int? userIdFromSession = HttpContext.Session.GetInt32("UserId");
+            Console.WriteLine("Login Success: userIdFromSession = " + userIdFromSession);
+
+            return RedirectToAction("Index", "Home");
         }
         else
         {
@@ -58,22 +69,57 @@ public class UserController : Controller
     [HttpPost("user/loginSuccess")]
     public IActionResult LoginUser(LogUser user)
     {
-        if (ModelState.IsValid) { 
-            //get user from db by email\
+        if (ModelState.IsValid) {
+            //get user from db by email
+            User? userInDb = _context.Users.SingleOrDefault(u => u.Email == user.LogEmail);
+
             //if user not in db addModelError
+            if (userInDb == null) {
+                ModelState.AddModelError("LogEmail", "Email does not exist or is incorect");
+                return View("Index");
+            }
             //initialise password hasher obj
+            PasswordHasher<LogUser> Hasher = new PasswordHasher<LogUser>();
             //VerityHashedPassword
-            //if result == 0 AddModelError
-            //else add UserId and username to sesstion
-            //get user id from session and console log it to confirm 
-            //redirectToAction("Index", "Home")
+            var result = Hasher.VerifyHashedPassword(user, userInDb.Password, user.LogPassword);
+            if (result == 0) {
+                ModelState.AddModelError("LogPassword", "Password is incorect");
+                return View("Index");
+            }
+            else {
+                HttpContext.Session.SetInt32("UserId", userInDb.UserId);
+                HttpContext.Session.SetString("Username", userInDb.Username);
+
+                //get user id from session and console log it to confirm 
+                int? userIdFromSession = HttpContext.Session.GetInt32("UserId");
+                Console.WriteLine("Login Success: userIdFromSession = " + userIdFromSession);
+
+                return RedirectToAction("Index", "Home");
+            }
+        }
+        else
+        {
+            Console.WriteLine("LogUser invalid");
+            return View("Index");
         }
 
 
 
 
-    }
+        }
 
+
+
+
+
+
+
+    //wtf is this:
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public IActionResult Error()
+    {
+        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
 
 
 }
