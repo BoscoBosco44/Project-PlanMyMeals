@@ -1,0 +1,49 @@
+@model Ingredient
+
+
+<div class="IngredientBox">
+
+    <h3>Ingredients</h3>
+
+    <form asp-action="CreateIngredient" asp-constoller="Home" method="post" class="flex">
+        <div class="InfoBox">
+                <div class="InfoBoxSpacing">
+                    <label class="paddingR-1" asp-for="Name">Name</label>
+                    <input asp-for="Name">
+                    <span asp-validaton-for="Name"></span>
+                </div>
+
+                <div class="InfoBoxSpacing">
+                    <label class="paddingR-1" asp-for="CaloriesPer100Gram">Calories</label>
+                    <input asp-for="CaloriesPer100Gram">
+                    <span asp-validaton-for="CaloriesPer100Gram"></span>
+                </div>
+
+                <div class="InfoBoxSpacing">
+                    <label class="paddingR-1" asp-for="ProteinPercent">Protein</label>
+                    <input asp-for="ProteinPercent">
+                    <span asp-validaton-for="ProteinPercent"></span>
+                </div>
+
+                <div class="InfoBoxSpacing">
+                    <label class="paddingR-1" asp-for="CarbPercent">Carbs</label>
+                    <input asp-for="CarbPercent">
+                    <span asp-validaton-for="CarbPercent"></span>
+                </div>
+
+                <div class="InfoBoxSpacing">
+                    <label class="paddingR-1" asp-for="FatPercent">Fat</label>
+                    <input asp-for="FatPercent">
+                    <span asp-validaton-for="FatPercent"></span>
+                </div>
+        </div>
+
+        <input type="submit" class="button-19 mg-2" value="Add Ingredient">   
+
+    </form>
+
+
+
+
+
+</div>

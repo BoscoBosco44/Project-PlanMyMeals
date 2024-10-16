@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using PlanMyMeals.Models;
+using Microsoft.EntityFrameworkCore; 
 
 namespace PlanMyMeals.Controllers;
 
@@ -16,18 +17,18 @@ public class HomeController : Controller
         _context = context;
     }
 
-    private static HttpClient sharedClient = new()
-    {
-        //-------
-        // BaseAddress = new Uri("https://jsonplaceholder.typicode.com")
-        //-------
-        BaseAddress = new Uri("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"),
-        DefaultRequestHeaders =
-        {
-            { "x-rapidapi-key", "16fe5f394dmsh681dffdca8ec923p105a46jsnb348004e73a3" },
-            { "x-rapidapi-host", "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com" }
-        }
-    };
+    //private static HttpClient sharedClient = new()
+    //{
+    //    //-------
+    //    // BaseAddress = new Uri("https://jsonplaceholder.typicode.com")
+    //    //-------
+    //    BaseAddress = new Uri("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"),
+    //    DefaultRequestHeaders =
+    //    {
+    //        { "x-rapidapi-key", "16fe5f394dmsh681dffdca8ec923p105a46jsnb348004e73a3" },
+    //        { "x-rapidapi-host", "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com" }
+    //    }
+    //};
 
 //------------------------------- view routes ------------------------------------
 
@@ -39,21 +40,68 @@ public class HomeController : Controller
 
     public IActionResult Recipes()
     {
-        //check if a new meal needs to be created in DB
-        Meal thisMeal = new Meal(); //how tf?
+        RecipeViewModel mealIngObj = new RecipeViewModel();
 
-        // SpoonacularApi reader = new SpoonacularApi();
-        // var ingList = await reader.GetIngInfoAsync();
+        Meal thisMeal = new Meal();
 
-        // thisMeal = reader.ConvertIngredientJsonListToMeal(ingList, thisMeal);
 
-        return View(thisMeal);
+        //get all ings and send down
+        List<Ingredient> allIngs = _context.Ingredients.ToList();
+
+        //package into mealIngObj send to view
+        mealIngObj.thisMeal = thisMeal;
+        mealIngObj.allIngredients = allIngs;
+        mealIngObj.mealsIngredients = new List<MealIngredient>();
+
+
+        return View(mealIngObj);
+
     }
 
     public IActionResult Goals()
     {
         return View();
     }
+
+    public IActionResult AddIngredient()
+    {
+        return View();
+    }
+
+
+
+    //------------------------------- CRUD routes ------------------------------------
+
+    [HttpPost("ingredient/create")]
+    public IActionResult CreateIngredient(Ingredient newIng)
+    {
+        if (ModelState.IsValid)
+        {
+            _context.Add(newIng);
+            _context.SaveChanges();
+
+            return RedirectToAction("Recipes");
+        }
+        else
+        {
+            return View("AddIngredient");
+        }
+    }
+
+    [HttpPost("mealIngredient/create")]
+    public IActionResult CreateMealIngredient(RecipeViewModel rvm) {
+
+        Console.WriteLine("-------------------- entered create meal --------------------");
+        Console.WriteLine("ingId: " + rvm.ingId);
+        Console.WriteLine("mealId: " + rvm.mealId); //meal has not been created yet
+        Console.WriteLine("amount: " + rvm.amount);
+
+
+
+        return RedirectToAction("Recipes", rvm);
+    }
+
+
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

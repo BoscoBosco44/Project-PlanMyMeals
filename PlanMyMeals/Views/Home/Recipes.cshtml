@@ -1,50 +1,132 @@
-﻿@model Meal
+﻿@model RecipeViewModel
+
 
 <div class="body-Recipe">
     <h1 class="AddRecipeText">Add Recipe</h1>
     <div class="AddRecipeLine"></div>
 
-    <form action="" asp-constoller="Home" method="post" class="flex">
-        <div class="InfoBox">
-            <div class="InfoBoxSpacing">
-                <label class="paddingR-1" asp-for="MealName">Name</label>
-                <input asp-for="MealName">
-                <span asp-validaton-for="MealName"></span>
-            </div>
+    <form asp-action="" asp-controller="Home" method="post" class="flex">
 
-            <div class="InfoBoxSpacing">
-                <label class="paddingR-1" asp-for="MealName">Calories</label>
-                <input asp-for="MealName">
-                <span asp-validaton-for="MealName"></span>
-            </div>
+        <div class="left-main3">
 
-            <div class="InfoBoxSpacing">
-                <label class="paddingR-1" asp-for="MealName">Protein</label>
-                <input asp-for="MealName">
-                <span asp-validaton-for="MealName"></span>
-            </div>
+            <div class="NameAndInstructionsBox">
+                <div class="InfoBoxSpacing">
+                    <label class="paddingR-1" asp-for="thisMeal.Name">Name</label>
+                    <input asp-for="thisMeal.Name">
+                    <span asp-validation-for="thisMeal.Name"></span>
+                </div>
+                <div class="InfoBoxSpacing">
+                    <label class="paddingR-1" asp-for="thisMeal.Instructions">Instructions</label>
+                    <input class="InstructionsInputBox" asp-for="thisMeal.Instructions">
+                    <span asp-validation-for="thisMeal.Instructions"></span>
+                </div>
 
-            <div class="InfoBoxSpacing">
-                <label class="paddingR-1" asp-for="MealName">Carbs</label>
-                <input asp-for="MealName">
-                <span asp-validaton-for="MealName"></span>
-            </div>
-
-            <div class="InfoBoxSpacing">
-                <label class="paddingR-1" asp-for="MealName">Fat</label>
-                <input asp-for="MealName">
-                <span asp-validaton-for="MealName"></span>
             </div>
 
         </div>
 
-            @await Html.PartialAsync("_5IngredientDisplay")
-            @await Html.PartialAsync("_AddIngredientsBox")
+        <div class="center-main3">
+            <h3>Recipe's Ingredients</h3>
+
+            <ul>
+                @foreach(MealIngredient mIng in Model.mealsIngredients) {
+                <li>@mIng.Id</li>
+                }
 
 
+            </ul>
+        </div>
 
+        <div class="right-main3">
+            <h3>Ingredient search:</h3>
+            <div>
+                <input id="ingredientSearch" oninput="ingSearch()" placeholder="Search..." />
+            </div>
+
+            <ul id="ingredientListDisplay">
+                @foreach(Ingredient ing in Model.allIngredients) {
+                <li class="ingredient-item-QSA" data-name="@ing.Name">
+                    <button type="button" class="btn-primary" onclick="addIngredientToRecipe(this)" name="@ing.Name" id="@ing.IngredientId">@ing.Name</button>
+                </li>
+                }
+            </ul>
+
+
+            @*The Razor loop generates a list of ingredients in <ul> as <li> elements with a data-name attribute storing the ingredient's name. This allows JavaScript to access the name for filtering.*@
+        </div>
 
     </form>
 
 
+    @* // --------- Popup ---------*@
+
+    <div class="IngAmountPopup" id="IngAmountPopup">
+        <h3>Enter amout in grams:</h3>
+        <form asp-action="CreateMealIngredient" asp-controller="home" method="post" class="">
+
+            <div id="amountInputIdDiv">
+                <input id="amountInputId" />
+
+            </div>
+
+            <input placeholder="Amount in grams" asp-for="amount" />
+
+
+            <button type="submit" class="btn-primary">Add Ingredient to recipe</button>
+            <button type="button" class="btn-primary" onclick="hidePopup()">Back</button>
+        </form>
+    </div>
+
 </div>
+
+
+
+
+
+<script>
+    function ingSearch() {
+        var input = document.getElementById("ingredientSearch").value.toLowerCase();
+        var ingredients = document.querySelectorAll('.ingredient-item-QSA'); //gets all elements with matching CSS tag
+
+        ingredients.forEach(function (item) {
+            var ingName = item.getAttribute('data-name').toLowerCase();
+            if (ingName.startsWith(input)) {
+                item.style.display = 'list-item'; //show item
+            }
+            else {
+                item.style.display = 'none'; //hides item
+                console.log("hiding item " + ingName);
+            }
+        });
+    }
+
+    function addIngredientToRecipe(element) {
+        //1. show popup
+        console.log("showing popup");
+        console.log("showing element.name: " + element.name);
+        showPopup();                 
+
+        //2. get ing name and put it in popup
+        console.log(`<input value="${element.name}" />`);
+        console.log(`<input value="${element.id}" />`);
+        document.getElementById('amountInputIdDiv').innerHTML = //`<input id=${element.id} value=${element.name} />
+                                                                 `<input id=${element.id} value=${element.id} asp-for="ingId"/>`;
+        
+
+        //3. after user inputs amout, create MealIngredient by sending info to home controller, running curd routes and re rendering this view
+        //4. display MealIngredient
+
+    }
+
+    function showPopup() {
+        var popupElement = document.getElementById('IngAmountPopup');
+        popupElement.style.display = 'inline';
+    }
+
+    function hidePopup() {
+        var popupElement = document.getElementById('IngAmountPopup');
+        popupElement.style.display = 'none';
+    }
+
+
+</script>

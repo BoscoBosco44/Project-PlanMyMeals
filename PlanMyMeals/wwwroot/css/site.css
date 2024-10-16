@@ -37,6 +37,63 @@ body {
   padding-right: 1em;
 }
 
+.input-box {
+    width: 10em; /* Adjust width as needed */
+    height: 50%;
+    padding: 10px; /* Adjust padding as needed */
+    /* border: 1px solid #ccc; Border color */
+    border-radius: 5px; /* Border radius for rounded corners */
+    font-size: 16px; /* Font size */
+    outline: none; /* Remove outline */
+    /* transition: border-color 0.3s ease; Smooth transition for border color */
+}
+
+/* --------- 2 Vertical Boxes body layout -------- */
+.left-main2 {
+    width: 50%;
+    /* border: 1px solid red; */
+}
+
+.right-main2 {
+    width: 50%;
+    /* border: 1px solid red; */
+}
+
+.formBox {
+    /* display: flex;
+  justify-content: space-between; */
+    /* border: solid red 10px; */
+    width: 40em;
+}
+
+
+/* --------- 3 Vertical Boxes body layout -------- */
+
+.left-main3 {
+    width: 33%;
+    /* border: 1px solid red; */
+    text-align: center;
+}
+
+.center-main3 {
+    width: 33%;
+    /* border: 1px solid red; */
+
+    display: flex;
+    flex-direction: column;
+    padding-top: 2em;
+    text-align: center;
+}
+
+.right-main3 {
+    width: 33%;
+    /* border: 1px solid red; */
+    text-align: center;
+}
+
+
+
+
 
 /* ---------------------------------- Meal Plan Page ---------------------------------- */
 
@@ -110,7 +167,9 @@ ul.mdIngredientsBox {
 /* ---------------------------------- Add Recipe Page ---------------------------------- */
 
 .body-Recipe {
-  /* border: 2px solid red; */
+   border: 2px solid red; 
+   height:40em;
+   
   
 }
 
@@ -127,8 +186,8 @@ ul.mdIngredientsBox {
 
 /* --- Info Box --- */
 
-.InfoBox {
-  /* border: 2px solid gray; */
+.NameAndInstructionsBox {
+  border: 2px solid gray; 
   margin: 1em;
   margin-top: 4.5em;
 }
@@ -141,6 +200,31 @@ ul.mdIngredientsBox {
   padding-bottom: 1em;
   
 }
+
+.InstructionsInputBox {
+    height: 30%;
+}
+
+/* --- Ingredient amount popup --- */
+
+.IngAmountPopup {
+    background-color: gray;
+    z-index: 3;
+    border-radius: 2em;
+    width: 50%;
+    height: 50%;
+
+    display: none;
+
+    position: fixed;
+    bottom: 5em;
+    right: 5em;
+}
+
+/* --- ----------------------- --- */
+
+
+
 
 /* --- Ingredients Box --- */
 
