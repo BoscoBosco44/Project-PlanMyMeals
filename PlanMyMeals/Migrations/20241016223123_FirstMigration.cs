@@ -67,6 +67,10 @@ namespace PlanMyMeals.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Password = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    CalorieGoal = table.Column<int>(type: "int", nullable: false),
+                    ProteinGoalPercent = table.Column<int>(type: "int", nullable: false),
+                    CarbGoalPercent = table.Column<int>(type: "int", nullable: false),
+                    FatGoalPercent = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false)
                 },

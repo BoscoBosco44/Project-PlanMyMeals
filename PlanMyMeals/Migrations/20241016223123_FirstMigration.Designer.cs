@@ -11,7 +11,7 @@ using PlanMyMeals.Models;
 namespace PlanMyMeals.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20241016204719_FirstMigration")]
+    [Migration("20241016223123_FirstMigration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -117,6 +117,12 @@ namespace PlanMyMeals.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<int>("CalorieGoal")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CarbGoalPercent")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
 
@@ -124,9 +130,15 @@ namespace PlanMyMeals.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<int>("FatGoalPercent")
+                        .HasColumnType("int");
+
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.Property<int>("ProteinGoalPercent")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime(6)");

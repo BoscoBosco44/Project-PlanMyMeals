@@ -1,0 +1,42 @@
+﻿@Model User
+
+<div>
+    <h3>Goals</h3>
+
+    <form asp-action="" asp-constoller="Home" method="post" class="flex">
+        <div class="InfoBox">
+            <div class="InfoBoxSpacing">
+                <label class="paddingR-1" asp-for="CalorieGoal">Calorie Goal</label>
+                <input asp-for="CalorieGoal">
+                <span asp-validaton-for="CalorieGoal"></span>
+            </div>
+
+            <div class="InfoBoxSpacing">
+                <label class="paddingR-1" asp-for="ProteinGoalPercent">Protein Goal Percent</label>
+                <input asp-for="ProteinGoalPercent">
+                <span asp-validaton-for="ProteinGoalPercent"></span>
+            </div>
+
+            <div class="InfoBoxSpacing">
+                <label class="paddingR-1" asp-for="CarbGoalPercent">Carb Goal Percent</label>
+                <input asp-for="CarbGoalPercent">
+                <span asp-validaton-for="CarbGoalPercent"></span>
+            </div>
+
+            <div class="InfoBoxSpacing">
+                <label class="paddingR-1" asp-for="FatGoalPercent">Carbs</label>
+                <input asp-for="FatGoalPercent">
+                <span asp-validaton-for="FatGoalPercent"></span>
+            </div>
+
+            <div class="InfoBoxSpacing">
+                <label class="paddingR-1" asp-for="Username">Fat</label>
+                <input asp-for="Username">
+                <span asp-validaton-for="Username"></span>
+            </div>
+        </div>
+
+        <input type="submit" class="button-19 mg-2" value="Add Ingredient">
+    </form>
+</div>
+

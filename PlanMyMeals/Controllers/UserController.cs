@@ -22,9 +22,28 @@ public class UserController : Controller
 
 
     [HttpGet("login")]
-    public IActionResult Index() 
+    public IActionResult UserIndex() 
     {
-        return View("Index");
+        return View("UserIndex");
+    }
+
+    [HttpGet("user/goals")]
+    public IActionResult Goals()
+    {
+        int? UserId = HttpContext.Session.GetInt32("UserId");
+        Console.WriteLine("UserId = " + UserId);
+        if (UserId == null)
+        {
+            Console.WriteLine("No logged in user, redirect to login");
+            return RedirectToAction("UserIndex");
+        }
+        else
+        {
+            Console.WriteLine("User logged in: pulling goal info...");
+            User user = _context.Users.FirstOrDefault(u => u.UserId == UserId);
+            return View("Goals", user);
+        }
+        //return View("Goals");
     }
 
 
@@ -57,7 +76,7 @@ public class UserController : Controller
         }
         else
         {
-            return View("Index");
+            return View("UserIndex");
         }
     }
 

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PlanMyMeals")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+87d8e0ce19ac4b489e7fd43d12ce87c221e01dba")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+182a43adbdb18efeed32a7d93ba3383a0b51f078")]
 [assembly: System.Reflection.AssemblyProductAttribute("PlanMyMeals")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PlanMyMeals")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

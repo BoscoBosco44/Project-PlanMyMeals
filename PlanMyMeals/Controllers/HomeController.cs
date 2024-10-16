@@ -57,10 +57,6 @@ public class HomeController : Controller
 
     }
 
-    public IActionResult Goals()
-    {
-        return View();
-    }
 
     public IActionResult AddIngredient()
     {

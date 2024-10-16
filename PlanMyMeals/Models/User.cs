@@ -24,6 +24,12 @@ public class User
     [Compare("Password")] //build-in attribute for comparing two class feilds
     public string ConfirmPassword {get; set;}
 
+    // User's Goals
+    public int CalorieGoal { get; set;}
+    public int ProteinGoalPercent { get; set;}
+    public int CarbGoalPercent { get; set;}
+    public int FatGoalPercent { get; set;}
+
 
 
     public DateTime CreatedAt {get; set;} = DateTime.Now;

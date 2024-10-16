@@ -115,6 +115,12 @@ namespace PlanMyMeals.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<int>("CalorieGoal")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CarbGoalPercent")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
 
@@ -122,9 +128,15 @@ namespace PlanMyMeals.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<int>("FatGoalPercent")
+                        .HasColumnType("int");
+
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.Property<int>("ProteinGoalPercent")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime(6)");
