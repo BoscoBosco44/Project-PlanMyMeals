@@ -109,16 +109,12 @@
         //2. get ing name and put it in popup
         console.log(`<input value="${element.name}" />`);
         console.log(`<input value="${element.id}" />`);
-        document.getElementById('amountInputIdDiv').innerHTML = `<input id=${element.id} value=${element.name} />
-                                                                 <input id=${element.id} value=${element.id} asp-for="ingId"/>`;
+        document.getElementById('amountInputIdDiv').innerHTML = //`<input id=${element.id} value=${element.name} />
+                                                                 `<input id=${element.id} value=${element.id} asp-for="ingId"/>`;
         
 
         //3. after user inputs amout, create MealIngredient by sending info to home controller, running curd routes and re rendering this view
         //4. display MealIngredient
-
-
-
-
 
     }
 

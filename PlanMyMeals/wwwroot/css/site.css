@@ -37,6 +37,34 @@ body {
   padding-right: 1em;
 }
 
+.input-box {
+    width: 10em; /* Adjust width as needed */
+    height: 50%;
+    padding: 10px; /* Adjust padding as needed */
+    /* border: 1px solid #ccc; Border color */
+    border-radius: 5px; /* Border radius for rounded corners */
+    font-size: 16px; /* Font size */
+    outline: none; /* Remove outline */
+    /* transition: border-color 0.3s ease; Smooth transition for border color */
+}
+
+/* --------- 2 Vertical Boxes body layout -------- */
+.left-main2 {
+    width: 50%;
+    /* border: 1px solid red; */
+}
+
+.right-main2 {
+    width: 50%;
+    /* border: 1px solid red; */
+}
+
+.formBox {
+    /* display: flex;
+  justify-content: space-between; */
+    /* border: solid red 10px; */
+    width: 40em;
+}
 
 
 /* --------- 3 Vertical Boxes body layout -------- */

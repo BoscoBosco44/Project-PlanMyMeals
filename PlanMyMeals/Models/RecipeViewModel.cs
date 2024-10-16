@@ -15,6 +15,8 @@ public class RecipeViewModel
     [Required]
     public int amount { get; set; }
 
+
+
     //functions
     //public List<MealIngredient> addIngToMeal(Meal m, List<MealIngredient> mList, Ingredient mealIng)
     //{
