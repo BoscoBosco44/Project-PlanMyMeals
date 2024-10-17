@@ -22,10 +22,6 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGRJbmdyZWRpZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/peter/Desktop/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Home/Goals.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxHb2Fscy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/peter/Desktop/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Home/MealPlan.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNZWFsUGxhbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -54,8 +50,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/peter/Desktop/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/User/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleC5jc2h0bWw=
+[C:/Users/peter/Desktop/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/User/Goals.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxHb2Fscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/peter/Desktop/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/User/UserIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVc2VySW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/peter/Desktop/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/User/_LogForm.cshtml]

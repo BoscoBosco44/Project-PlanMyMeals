@@ -16,8 +16,8 @@ public class User
     [UniqueEmail]
     public string Email {get; set;}
 
-    [DataType(DataType.Password)] //???
-    [MinLength(8, ErrorMessage ="Password must be at least 8 char")] //this would be 8 but it would break all my accounts 
+    [DataType(DataType.Password)] 
+    [MinLength(8, ErrorMessage ="Password must be at least 8 char")] 
     public string Password {get; set;}
 
     [NotMapped]
