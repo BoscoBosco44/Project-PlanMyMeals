@@ -80,6 +80,46 @@ public class UserController : Controller
         }
     }
 
+    //[HttpGet("user/goals")]
+    //public IActionResult GetUserGoals()
+    //{
+    //    int? UserId = HttpContext.Session.GetInt32("UserId");
+    //    if (UserId == null)
+    //    {
+    //        Console.WriteLine("No logged in user, redirect to login");
+    //        return RedirectToAction("UserIndex");
+    //    }
+    //    else
+    //    {
+    //        User user = _context.Users.FirstOrDefault(u => u.UserId == UserId);
+    //        return View("Goals");
+    //    }
+    //}
+
+    [HttpPost("user/updateGoals")]
+    public IActionResult UpdateUserGoals(User user)
+    {
+        int? UserId = HttpContext.Session.GetInt32("UserId");
+        if (UserId == null)
+        {
+            Console.WriteLine("No logged in user, redirect to login");
+            return RedirectToAction("UserIndex");
+        }
+        else
+        {
+            User userIdDb = _context.Users.FirstOrDefault(u => u.UserId == UserId);
+            userIdDb.CalorieGoal = user.CalorieGoal;
+            userIdDb.ProteinGoalPercent = user.ProteinGoalPercent;
+            userIdDb.CarbGoalPercent = user.CarbGoalPercent;
+            userIdDb.FatGoalPercent = user.FatGoalPercent;
+            userIdDb.UpdatedAt = DateTime.Now;
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Goals");
+        }
+    }
+
 
 
 

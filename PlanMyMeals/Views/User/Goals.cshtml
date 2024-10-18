@@ -3,7 +3,7 @@
 <div>
     <h3>Goalss</h3>
 
-    <form asp-action="" asp-constoller="User" method="post" class="flex">
+    <form asp-action="UpdateUserGoals" asp-constoller="User" method="post" class="flex">
         <div class="InfoBox">
             <div class="InfoBoxSpacing">
                 <label class="paddingR-1" asp-for="CalorieGoal">Calorie Goal</label>
@@ -24,19 +24,19 @@
             </div>
 
             <div class="InfoBoxSpacing">
-                <label class="paddingR-1" asp-for="FatGoalPercent">Carbs</label>
+                <label class="paddingR-1" asp-for="FatGoalPercent">Fat Goal Percent</label>
                 <input asp-for="FatGoalPercent">
                 <span asp-validaton-for="FatGoalPercent"></span>
             </div>
 
             <div class="InfoBoxSpacing">
-                <label class="paddingR-1" asp-for="Username">Fat</label>
+                <label class="paddingR-1" asp-for="Username">Your Username</label>
                 <input asp-for="Username">
                 <span asp-validaton-for="Username"></span>
             </div>
         </div>
 
-        <input type="submit" class="button-19 mg-2" value="Add Ingredient">
+        <input type="submit" class="button-19 mg-2" value="Update">
     </form>
 </div>
 
