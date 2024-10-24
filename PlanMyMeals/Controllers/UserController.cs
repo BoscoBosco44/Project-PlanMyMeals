@@ -135,7 +135,7 @@ public class UserController : Controller
             //if user not in db addModelError
             if (userInDb == null) {
                 ModelState.AddModelError("LogEmail", "Email does not exist or is incorect");
-                return View("Index");
+                return View("UserIndex");
             }
             //initialise password hasher obj
             PasswordHasher<LogUser> Hasher = new PasswordHasher<LogUser>();
@@ -143,7 +143,7 @@ public class UserController : Controller
             var result = Hasher.VerifyHashedPassword(user, userInDb.Password, user.LogPassword);
             if (result == 0) {
                 ModelState.AddModelError("LogPassword", "Password is incorect");
-                return View("Index");
+                return View("UserIndex");
             }
             else {
                 HttpContext.Session.SetInt32("UserId", userInDb.UserId);
@@ -153,7 +153,7 @@ public class UserController : Controller
                 int? userIdFromSession = HttpContext.Session.GetInt32("UserId");
                 Console.WriteLine("Login Success: userIdFromSession = " + userIdFromSession);
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("UserIndex", "Home");
             }
         }
         else

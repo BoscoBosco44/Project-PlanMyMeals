@@ -10,10 +10,10 @@ public class Meal
 
     public string Name {get; set;}
 
-    public string Instructions { get; set; }
+    public string? Instructions { get; set; }
 
 
-    public string MealImgLocation {get; set;}
+    public string? MealImgLocation {get; set;}
 
 
 

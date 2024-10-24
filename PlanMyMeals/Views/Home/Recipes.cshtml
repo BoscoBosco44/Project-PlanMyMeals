@@ -5,7 +5,7 @@
     <h1 class="AddRecipeText">Add Recipe</h1>
     <div class="AddRecipeLine"></div>
 
-    <form asp-action="" asp-controller="Home" method="post" class="flex">
+    <form asp-action="CreateMeal" asp-controller="Home" method="post" class="flex">
 
         <div class="left-main3">
 
@@ -33,7 +33,7 @@
                 <li>@mIng.Id</li>
                 }
 
-
+                 
             </ul>
         </div>
 
@@ -71,7 +71,7 @@
 
             <input placeholder="Amount in grams" asp-for="amount" />
             <input type="hidden" id="popupIngId" asp-for="ingId"/>
-            @*<input type="hidden" id="popupMealId" asp-for="mealId"/>*@
+            <input type="hidden" id="popupMealName" asp-for="thisMeal.Name"/>
 
 
 
@@ -112,15 +112,11 @@
         //2. get ing name and put it in popup
         console.log(`<input value="${element.name}" />`);
         console.log(`<input value="${element.id}" />`);
-        //document.getElementById('amountInputIdDiv').innerHTML = `<input id=${element.id} value=${element.name} />
-        //                                                         <input id=${element.id} value=${element.id} name="ingId"/>`;
-        //var breakk = 1;
 
         document.getElementById('popupIngId').value = element.id;
-        //document.getElementById('popupMealId').value = 
+        document.getElementById('popupMealName').value = element.name;
 
-        //3. after user inputs amout, create MealIngredient by sending info to home controller, running curd routes and re rendering this view
-        //4. display MealIngredient
+
 
     }
 

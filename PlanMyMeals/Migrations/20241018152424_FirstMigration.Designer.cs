@@ -11,7 +11,7 @@ using PlanMyMeals.Models;
 namespace PlanMyMeals.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20241016223123_FirstMigration")]
+    [Migration("20241018152424_FirstMigration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -64,11 +64,9 @@ namespace PlanMyMeals.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Instructions")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("MealImgLocation")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Name")

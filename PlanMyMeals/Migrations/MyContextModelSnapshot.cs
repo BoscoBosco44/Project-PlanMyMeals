@@ -62,11 +62,9 @@ namespace PlanMyMeals.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Instructions")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("MealImgLocation")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Name")

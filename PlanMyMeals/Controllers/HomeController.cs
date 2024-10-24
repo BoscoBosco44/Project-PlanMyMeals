@@ -89,14 +89,53 @@ public class HomeController : Controller
         Console.WriteLine("-------------------- entered create meal --------------------");
         Console.WriteLine("ingId: " + rvm.ingId);
         Console.WriteLine("mealId: " + rvm.mealId); //meal has not been created yet
+        Console.WriteLine("thisMeal.Name: " + rvm.thisMeal.Name); 
         Console.WriteLine("amount: " + rvm.amount);
 
+        if (rvm.mealId == 0)
+        { //if a meal obj has not been created for this meal create one
+            Meal tempMeal = new Meal();
+            tempMeal.Name = rvm.thisMeal.Name;
+            _context.Meals.Add(tempMeal);
+            _context.SaveChanges();
+        }
 
+        //get meal obj (so we can get the mealID)
+        Meal meal = _context.Meals.FirstOrDefault(m => m.Name == rvm.thisMeal.Name);
+
+        //create mealIngredient Obj and add ingId, mealId, and amount
+        MealIngredient mealIngObj = new MealIngredient();
+        mealIngObj.MealId = meal.MealId;
+        mealIngObj.IngredientId = rvm.ingId;
+        mealIngObj.amount = rvm.amount;
+
+        //add to db
+        _context.MealIngredients.Add(mealIngObj);
+        _context.SaveChanges();
+
+        //get all MealIngredients w a matching mealId
+        List<MealIngredient> mealIngList = _context.MealIngredients.Where(mi => mi.MealId == meal.MealId).ToList();
+        rvm.mealsIngredients = mealIngList;
 
         return RedirectToAction("Recipes", rvm);
     }
 
+    [HttpPost("meal/create")]
+    public IActionResult CreateMeal(Meal meal)
+    {
+        if (!ModelState.IsValid)
+        {
+            _context.Meals.Add(meal);
+            _context.SaveChanges();
 
+            return RedirectToAction("Recipes");
+        }
+        else
+        {
+            return View("Recipes");
+        }
+
+    }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
