@@ -84,6 +84,20 @@ public class HomeController : Controller
 
 
 
+    //------------------------------- Modal??? ------------------------------------
+    public IActionResult GetModalContent(int IngredientId, int MealId)
+    {
+        
+        MealIngredient mealIng = new MealIngredient();
+
+        mealIng.MealId = MealId;
+        mealIng.IngredientId = IngredientId;
+
+        return PartialView("_AddIngredientModal", mealIng);
+    }
+
+
+
     //------------------------------- CRUD routes ------------------------------------
 
     [HttpPost("ingredient/create")]
@@ -105,7 +119,7 @@ public class HomeController : Controller
     [HttpPost("mealIngredient/create")]
     public IActionResult CreateMealIngredient(RecipeViewModel rvm) {
 
-        Console.WriteLine("-------------------- entered create meal --------------------");
+        Console.WriteLine("-------------------- entered create meal ingredient --------------------");
         Console.WriteLine("ingId: " + rvm.ingId);
         Console.WriteLine("mealId: " + rvm.mealId); //meal has not been created yet
         Console.WriteLine("thisMeal.Name: " + rvm.thisMeal.Name); 

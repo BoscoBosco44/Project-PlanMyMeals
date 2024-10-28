@@ -5,25 +5,30 @@
     <h1 class="AddRecipeText">Add Recipe</h1>
     <div class="AddRecipeLine"></div>
 
-    <form asp-action="CreateMeal" asp-controller="Home" method="post" class="flex">
+    <div class="flex">
 
-        <div class="left-main3">
 
-            <div class="NameAndInstructionsBox">
-                <div class="InfoBoxSpacing">
-                    <label class="paddingR-1" asp-for="thisMeal.Name">Name</label>
-                    <input asp-for="thisMeal.Name">
-                    <span asp-validation-for="thisMeal.Name"></span>
-                </div>
-                <div class="InfoBoxSpacing">
-                    <label class="paddingR-1" asp-for="thisMeal.Instructions">Instructions</label>
-                    <input class="InstructionsInputBox" asp-for="thisMeal.Instructions">
-                    <span asp-validation-for="thisMeal.Instructions"></span>
+
+        <form asp-action="CreateMeal" asp-controller="Home" method="post" class="flex">
+
+            <div class="left-main3">
+
+                <div class="NameAndInstructionsBox">
+                    <div class="InfoBoxSpacing">
+                        <label class="paddingR-1" asp-for="thisMeal.Name">Name</label>
+                        <input asp-for="thisMeal.Name">
+                        <span asp-validation-for="thisMeal.Name"></span>
+                    </div>
+                    <div class="InfoBoxSpacing">
+                        <label class="paddingR-1" asp-for="thisMeal.Instructions">Instructions</label>
+                        <input class="InstructionsInputBox" asp-for="thisMeal.Instructions">
+                        <span asp-validation-for="thisMeal.Instructions"></span>
+                    </div>
+
                 </div>
 
             </div>
-
-        </div>
+        </form>
 
         <div class="center-main3">
             <h3>Recipe's Ingredients</h3>
@@ -33,7 +38,7 @@
                 <li>@mIng.Id</li>
                 }
 
-                 
+
             </ul>
         </div>
 
@@ -46,7 +51,9 @@
             <ul id="ingredientListDisplay">
                 @foreach(Ingredient ing in Model.allIngredients) {
                 <li class="ingredient-item-QSA" data-name="@ing.Name">
-                    <button type="button" class="btn-primary" onclick="addIngredientToRecipe(this)" name="@ing.Name" id="@ing.IngredientId">@ing.Name</button>
+                    @*<button type="button" class="btn-primary" onclick="addIngredientToRecipe(this)" name="@ing.Name" id="@ing.IngredientId">@ing.Name</button>*@
+                    
+                    <button type="button" class="btn btn-primary" onclick="openModal(@ing.IngredientId, 100)">Open Modal for @ing.Name</button>
                 </li>
                 }
             </ul>
@@ -55,14 +62,18 @@
             @*The Razor loop generates a list of ingredients in <ul> as <li> elements with a data-name attribute storing the ingredient's name. This allows JavaScript to access the name for filtering.*@
         </div>
 
-    </form>
+
+    </div>
+
+
+
 
 
     @* // ------------------ Popup ------------------  // *@
 
     <div class="IngAmountPopup" id="IngAmountPopup">
         <h3>Enter amout in grams:</h3>
-        <form asp-action="CreateMealIngredient" asp-controller="home" method="post" class="">
+        <form asp-action="CreateMealIngredient" asp-controller="Home" method="post">
 
             <div id="amountInputIdDiv">
                 <input id="amountInputId" />
@@ -70,14 +81,35 @@
             </div>
 
             <input placeholder="Amount in grams" asp-for="amount" />
-            <input type="hidden" id="popupIngId" asp-for="ingId"/>
-            <input type="hidden" id="popupMealName" asp-for="thisMeal.Name"/>
+            <input type="hidden" id="popupIngId" asp-for="ingId" />
+            <input type="hidden" id="popupMealName" asp-for="thisMeal.Name" />
 
 
 
             <button type="submit" class="btn-primary">Add Ingredient to recipe</button>
             <button type="button" class="btn-primary" onclick="hidePopup()">Back</button>
         </form>
+    </div>
+
+
+    <!-- Modal Structure -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel">Modal Title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Content to be dynamically loaded here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
 
 </div>
@@ -107,7 +139,7 @@
         //1. show popup
         console.log("showing popup");
         console.log("showing element.name: " + element.name);
-        showPopup();                 
+        showPopup();
 
         //2. get ing name and put it in popup
         console.log(`<input value="${element.name}" />`);
@@ -130,5 +162,20 @@
         popupElement.style.display = 'none';
     }
 
+
+    function openModal(IngredientId, MealId) {
+        $.ajax({
+            url: '/Home/GetModalContent', // Replace with your controller/action if different
+            data: { IngredientId: IngredientId, MealId: MealId },
+            success: function (result) {
+                $('#myModal .modal-body').html(result); // Load result into modal body
+                $('#myModal').modal('show');            // Show the modal
+            },
+            error: function () {
+                console.error("Error loading content:", status, error); // Log additional details
+                alert("Could not load content.");
+            }
+        });
+    }
 
 </script>
