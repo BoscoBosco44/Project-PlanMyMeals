@@ -37,11 +37,13 @@ public class HomeController : Controller
         return View("MealPlan");
     }
 
-    public IActionResult Recipes()
+    public IActionResult Recipes(int mealId)
     {
+        Console.WriteLine("-------------------- recipe/mealId --------------------");
+
         RecipeViewModel mealIngObj = new RecipeViewModel();
 
-        Meal thisMeal = new Meal();
+        Meal thisMeal = _context.Meals.FirstOrDefault(meal => meal.MealId == mealId);
 
 
         //get all ings and send down
@@ -53,8 +55,25 @@ public class HomeController : Controller
         mealIngObj.mealsIngredients = new List<MealIngredient>();
 
 
-        return View(mealIngObj);
+        return View("Recipes", mealIngObj);
 
+    }
+
+    public IActionResult ViewMeals()
+    {
+        Console.WriteLine("-------------------- entered MealsPage --------------------");
+
+        RecipeViewModel rvm = new RecipeViewModel();
+
+        Meal thisMeal = new Meal();
+
+        List<Meal> allMeals = _context.Meals.ToList();
+
+        rvm.thisMeal = thisMeal;
+        rvm.allMeals = allMeals;
+
+
+        return View("MealsPage", rvm);
     }
 
 
@@ -121,18 +140,21 @@ public class HomeController : Controller
     }
 
     [HttpPost("meal/create")]
-    public IActionResult CreateMeal(Meal meal)
+    public IActionResult CreateMeal(RecipeViewModel rvm)
     {
+        Meal meal = rvm.thisMeal;
+        Console.WriteLine("-------------- meal.name ---------------");
+        Console.WriteLine(meal.Name);
         if (!ModelState.IsValid)
         {
             _context.Meals.Add(meal);
             _context.SaveChanges();
 
-            return RedirectToAction("Recipes");
+            return RedirectToAction("MealsPage");
         }
         else
         {
-            return View("Recipes");
+            return View("MealsPage");
         }
 
     }

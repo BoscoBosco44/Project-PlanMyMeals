@@ -1,0 +1,92 @@
+@model RecipeViewModel
+
+
+<div class="body-Recipe">
+    <h1 class="AddRecipeText">Add Meal Info</h1>
+    <div class="AddRecipeLine"></div>
+
+    <div class="flex">
+
+
+        <form asp-action="CreateMeal" asp-controller="Home" method="post" >
+
+            <div class="left-main3">
+
+                <div class="NameAndInstructionsBox">
+                    <div class="InfoBoxSpacing">
+                        <label class="paddingR-1" asp-for="thisMeal.Name">Name</label>
+                        <input asp-for="thisMeal.Name">
+                        <span asp-validation-for="thisMeal.Name"></span>
+                    </div>
+                    <div class="InfoBoxSpacing">
+                        <label class="paddingR-1" asp-for="thisMeal.Instructions">Instructions</label>
+                        <input class="InstructionsInputBox" asp-for="thisMeal.Instructions">
+                        <span asp-validation-for="thisMeal.Instructions"></span>
+                    </div>
+
+                </div>
+                <input type="submit" class="btn btn-primary" />
+
+            </div>
+        </form>
+
+
+        <div class="center-main3">
+            <h3>do a picture ting</h3>
+
+
+        </div>
+
+        <div class="right-main3">
+            <h3>Meal search:</h3>
+
+            <div>
+                <input id="mealSearch" oninput="ingSearch()" placeholder="Search..." />
+            </div>
+
+
+
+                <ul>
+                    @foreach(Meal meal in Model.allMeals) {
+                    <li>
+                        <form asp-action="Recipes" asp-controller="Home" method="post" class="flex search-QSA">
+                            <input type="hidden" name="mealId" value="@meal.MealId" />
+                            <button type="submit" class="btn-primary" onclick="//build recipe pg">@meal.Name</button>
+                        </form>
+
+                    </li>
+                }
+
+
+                </ul>
+
+
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+<script>
+    function mealSearch() {
+        var input = document.getElementById("mealSearch").value.toLowerCase();
+        var ingredients = document.querySelectorAll('.search-QSA'); //gets all elements with matching CSS tag
+
+        ingredients.forEach(function (item) {
+            var ingName = item.getAttribute('data-name').toLowerCase();
+            if (ingName.startsWith(input)) {
+                item.style.display = 'list-item'; //show item
+            }
+            else {
+                item.style.display = 'none'; //hides item
+                console.log("hiding item " + ingName);
+            }
+        });
+    }
+
+
+</script>

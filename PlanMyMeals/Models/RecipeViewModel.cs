@@ -8,7 +8,7 @@ public class RecipeViewModel
     public List<Ingredient> allIngredients { get; set; }
     public List<MealIngredient> mealsIngredients { get; set; }
 
-
+    public List<Meal> allMeals { get; set; }
 
     public int ingId { get; set; }
     public int mealId { get; set; }
