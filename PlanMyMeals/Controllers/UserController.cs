@@ -153,7 +153,7 @@ public class UserController : Controller
                 int? userIdFromSession = HttpContext.Session.GetInt32("UserId");
                 Console.WriteLine("Login Success: userIdFromSession = " + userIdFromSession);
 
-                return RedirectToAction("UserIndex", "Home");
+                return RedirectToAction("Goals");
             }
         }
         else

@@ -11,7 +11,7 @@ using PlanMyMeals.Models;
 namespace PlanMyMeals.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20241025231437_FirstMigration")]
+    [Migration("20241028220856_FirstMigration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

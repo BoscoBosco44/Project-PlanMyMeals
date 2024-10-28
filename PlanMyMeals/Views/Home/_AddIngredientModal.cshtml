@@ -1,6 +1,25 @@
-
-
-
 <!-- _ModalContent.cshtml -->
+@model MealIngredient
 <p>Ingredient Id: @Model.IngredientId</p>
 <p>Meal Id: @Model.MealId</p>
+
+<form asp-action="CreateMealIngredient" asp-controller="Home" method="post">
+
+
+    <input type="hidden" asp-for="IngredientId" />
+    <input type="hidden" asp-for="MealId" />
+
+
+    <div id="amountInputIdDiv">
+        <label for="amountInputId">Amount (in grams)</label>
+        <input asp-for="@Model.amount" id="amountInputId" />
+
+    </div>
+
+
+
+
+
+    <button type="submit" class="btn-primary">Add Ingredient to recipe</button>
+</form>
+

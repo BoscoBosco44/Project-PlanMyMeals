@@ -35,7 +35,7 @@
 
             <ul>
                 @foreach(MealIngredient mIng in Model.mealsIngredients) {
-                <li>@mIng.Id</li>
+                <li>@mIng.Id // MealId: @mIng.MealId // IngId: @mIng.IngredientId // # of grams: @mIng.amount</li>
                 }
 
 
@@ -53,7 +53,7 @@
                 <li class="ingredient-item-QSA" data-name="@ing.Name">
                     @*<button type="button" class="btn-primary" onclick="addIngredientToRecipe(this)" name="@ing.Name" id="@ing.IngredientId">@ing.Name</button>*@
                     
-                    <button type="button" class="btn btn-primary" onclick="openModal(@ing.IngredientId, 100)">Open Modal for @ing.Name</button>
+                    <button type="button" class="btn btn-primary" onclick="openModal(@ing.IngredientId, @Model.thisMeal.MealId)">Open Modal for @ing.Name</button>
                 </li>
                 }
             </ul>

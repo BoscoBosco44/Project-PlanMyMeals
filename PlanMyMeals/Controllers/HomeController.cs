@@ -16,18 +16,7 @@ public class HomeController : Controller
         _context = context;
     }
 
-    //private static HttpClient sharedClient = new()
-    //{
-    //    //-------
-    //    // BaseAddress = new Uri("https://jsonplaceholder.typicode.com")
-    //    //-------
-    //    BaseAddress = new Uri("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"),
-    //    DefaultRequestHeaders =
-    //    {
-    //        { "x-rapidapi-key", "16fe5f394dmsh681dffdca8ec923p105a46jsnb348004e73a3" },
-    //        { "x-rapidapi-host", "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com" }
-    //    }
-    //};
+
 
 //------------------------------- view routes ------------------------------------
 
@@ -36,28 +25,58 @@ public class HomeController : Controller
     {
         return View("MealPlan");
     }
+    
+//-----
+
+    public IActionResult ViewAlgoDevPg() // Meal Plan Page
+    {
+
+        int? UserId = HttpContext.Session.GetInt32("UserId");
+        Console.WriteLine("UserId = " + UserId);
+        if (UserId == null)
+        {
+            Console.WriteLine("No logged in user, redirect to login");
+            return RedirectToAction("UserIndex", "User");
+        }
+        else
+        {
+            Console.WriteLine("User logged in: pulling goal info...");
+            User user = _context.Users.FirstOrDefault(u => u.UserId == UserId);
+
+
+            AlgoViewModel avm = new AlgoViewModel();
+            avm.thisUser = user;
+            avm.allMeals = _context.Meals.ToList();
+
+            return View("AlgoDevPage", avm);
+        }
+
+
+    }
+    
+//-----
 
     public IActionResult Recipes(int mealId)
     {
         Console.WriteLine("-------------------- recipe/mealId --------------------");
 
-        RecipeViewModel mealIngObj = new RecipeViewModel();
-
-        Meal thisMeal = _context.Meals.FirstOrDefault(meal => meal.MealId == mealId);
-
-
-        //get all ings and send down
+        //create rvm to send all info back to build recipes page
+        RecipeViewModel rvm = new RecipeViewModel();
+        //meal
+        rvm.thisMeal = _context.Meals.FirstOrDefault(m => m.MealId == mealId);
+        //get list of all ingredients
         List<Ingredient> allIngs = _context.Ingredients.ToList();
+        rvm.allIngredients = allIngs;
+        //ingredients in thisMeal
+        List<MealIngredient> mealIngList = _context.MealIngredients.Where(m => m.MealId == mealId).ToList();
+        rvm.mealsIngredients = mealIngList;
 
-        //package into mealIngObj send to view
-        mealIngObj.thisMeal = thisMeal;
-        mealIngObj.allIngredients = allIngs;
-        mealIngObj.mealsIngredients = new List<MealIngredient>();
 
-
-        return View("Recipes", mealIngObj);
+        return View("Recipes", rvm);
 
     }
+
+//-----
 
     public IActionResult ViewMeals()
     {
@@ -108,7 +127,7 @@ public class HomeController : Controller
             _context.Add(newIng);
             _context.SaveChanges();
 
-            return RedirectToAction("Recipes");
+            return View("AddIngredient");
         }
         else
         {
@@ -117,61 +136,66 @@ public class HomeController : Controller
     }
 
     [HttpPost("mealIngredient/create")]
-    public IActionResult CreateMealIngredient(RecipeViewModel rvm) {
+    public IActionResult CreateMealIngredient(MealIngredient mealIng)
+    {
 
         Console.WriteLine("-------------------- entered create meal ingredient --------------------");
-        Console.WriteLine("ingId: " + rvm.ingId);
-        Console.WriteLine("mealId: " + rvm.mealId); //meal has not been created yet
-        Console.WriteLine("thisMeal.Name: " + rvm.thisMeal.Name); 
-        Console.WriteLine("amount: " + rvm.amount);
-
-        if (rvm.mealId == 0)
-        { //if a meal obj has not been created for this meal create one
-            Meal tempMeal = new Meal();
-            tempMeal.Name = rvm.thisMeal.Name;
-            _context.Meals.Add(tempMeal);
-            _context.SaveChanges();
-        }
-
-        //get meal obj (so we can get the mealID)
-        Meal meal = _context.Meals.FirstOrDefault(m => m.Name == rvm.thisMeal.Name);
+        Console.WriteLine("IngredientId: " + mealIng.IngredientId);
+        Console.WriteLine("MealId: " + mealIng.MealId); 
+        Console.WriteLine("ing amout: " + mealIng.amount);
 
         //create mealIngredient Obj and add ingId, mealId, and amount
         MealIngredient mealIngObj = new MealIngredient();
-        mealIngObj.MealId = meal.MealId;
-        mealIngObj.IngredientId = rvm.ingId;
-        mealIngObj.amount = rvm.amount;
+        mealIngObj.MealId = mealIng.MealId;
+        mealIngObj.IngredientId = mealIng.IngredientId;
+        mealIngObj.amount = mealIng.amount;
 
         //add to db
         _context.MealIngredients.Add(mealIngObj);
         _context.SaveChanges();
 
-        //get all MealIngredients w a matching mealId
-        List<MealIngredient> mealIngList = _context.MealIngredients.Where(mi => mi.MealId == meal.MealId).ToList();
-        rvm.mealsIngredients = mealIngList;
 
-        return RedirectToAction("Recipes", rvm);
+        ////create rvm to send all info back to build recipes page
+        //RecipeViewModel rvm = new RecipeViewModel();
+        ////meal
+        //rvm.thisMeal = _context.Meals.FirstOrDefault(m => m.MealId == mealIng.MealId);
+        ////get list of all ingredients
+        //List<Ingredient> allIngs = _context.Ingredients.ToList();
+        //rvm.allIngredients = allIngs;
+        ////ingredients in thisMeal
+        //List<MealIngredient> mealIngList = _context.MealIngredients.Where(m => m.MealId == mealIng.MealId).ToList();
+        //rvm.mealsIngredients = mealIngList;
+        //return View("Recipes", rvm);
+
+        return RedirectToAction("Recipes", new { mealId = mealIng.MealId });
     }
+
+
 
     [HttpPost("meal/create")]
     public IActionResult CreateMeal(RecipeViewModel rvm)
     {
         Meal meal = rvm.thisMeal;
-        Console.WriteLine("-------------- meal.name ---------------");
+        Console.WriteLine("-------------- meal / create ---------------");
         Console.WriteLine(meal.Name);
         if (!ModelState.IsValid)
         {
             _context.Meals.Add(meal);
             _context.SaveChanges();
+            Console.WriteLine("Meal create success");
 
-            return RedirectToAction("MealsPage");
+            return RedirectToAction("ViewMeals");
         }
         else
         {
-            return View("MealsPage");
+            return View("");
         }
 
     }
+
+
+
+
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
