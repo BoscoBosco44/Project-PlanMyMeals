@@ -92,6 +92,18 @@ body {
 }
 
 
+/* -------------------------------------------------------------------- Goals Page -------------------------------------------------------------------- */
+
+.GoalsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 500px));
+    grid-gap: 1rem;
+}
+@media (min-width: 576px) {
+    .GoalsContainer {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 300px));
+    }
+}
 
 
 
