@@ -22,7 +22,19 @@
             One of three columns
         </div>
         <div class="col-sm">
-            One of three columns
+            <ul>
+                @foreach(Meal meal in Model.allMeals) {
+                <li>
+                    <form asp-action="Recipes" asp-controller="Home" method="post" class="flex search-QSA">
+                        <input type="hidden" name="mealId" value="@meal.MealId" />
+                        <button type="submit" class="btn-primary" onclick="//build recipe pg">@meal.Name</button>
+                    </form>
+
+                </li>
+                }
+
+
+            </ul>
         </div>
 
     </div>

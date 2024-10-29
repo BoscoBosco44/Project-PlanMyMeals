@@ -25,8 +25,13 @@ public class HomeController : Controller
     {
         return View("MealPlan");
     }
-    
-//-----
+
+    public IActionResult AddIngredient()
+    {
+        return View();
+    }
+
+    //-----
 
     public IActionResult ViewAlgoDevPg() // Meal Plan Page
     {
@@ -95,11 +100,6 @@ public class HomeController : Controller
         return View("MealsPage", rvm);
     }
 
-
-    public IActionResult AddIngredient()
-    {
-        return View();
-    }
 
 
 

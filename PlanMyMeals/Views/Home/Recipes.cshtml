@@ -53,7 +53,7 @@
                 <li class="ingredient-item-QSA" data-name="@ing.Name">
                     @*<button type="button" class="btn-primary" onclick="addIngredientToRecipe(this)" name="@ing.Name" id="@ing.IngredientId">@ing.Name</button>*@
                     
-                    <button type="button" class="btn btn-primary" onclick="openModal(@ing.IngredientId, @Model.thisMeal.MealId)">Open Modal for @ing.Name</button>
+                    <button type="button" class="btn btn-primary mt-2" onclick="openModal(@ing.IngredientId, @Model.thisMeal.MealId)">Open Modal for @ing.Name</button>
                 </li>
                 }
             </ul>
@@ -165,7 +165,7 @@
 
     function openModal(IngredientId, MealId) {
         $.ajax({
-            url: '/Home/GetModalContent', // Replace with your controller/action if different
+            url: '/Home/GetModalContent', 
             data: { IngredientId: IngredientId, MealId: MealId },
             success: function (result) {
                 $('#myModal .modal-body').html(result); // Load result into modal body

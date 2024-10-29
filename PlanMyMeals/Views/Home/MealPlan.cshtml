@@ -6,21 +6,19 @@
 <h1>@ViewData["Title"]</h1>
 
 
-<div class="pageBox">
+<div class="MealPlanContainer">
+        @await Html.PartialAsync("_MealDisplay")
+        @await Html.PartialAsync("_MealDisplay")        
         @await Html.PartialAsync("_MealDisplay")
         @await Html.PartialAsync("_MealDisplay")
     </div>
-    <div class="pageBox">
+    @*<div class="MealPlanContainer">
         @await Html.PartialAsync("_MealDisplay")
         @await Html.PartialAsync("_MealDisplay")
-    </div>
+    </div>*@
 
 
 
 
 
-<!-- Include Bootstrap CSS -->
-<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
-<!-- Include jQuery and Bootstrap JS -->
-<!--<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
+

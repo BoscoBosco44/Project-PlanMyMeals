@@ -5,9 +5,9 @@
 
     <form asp-action="UpdateUserGoals" asp-constoller="User" method="post" class="flex">
         <div class="InfoBox">
-            <div class="InfoBoxSpacing">
-                <label class="paddingR-1" asp-for="CalorieGoal">Calorie Goal</label>
-                <input asp-for="CalorieGoal">
+            <div class="mb-3">
+                <label class="form-label" asp-for="CalorieGoal">Calorie Goal</label>
+                <input class="form-control" asp-for="CalorieGoal">
                 <span asp-validaton-for="CalorieGoal"></span>
             </div>
 
@@ -36,7 +36,7 @@
             </div>
         </div>
 
-        <input type="submit" class="button-19 mg-2" value="Update">
+        <input type="submit" class="btn btn-primary" value="Update">
     </form>
 </div>
 
