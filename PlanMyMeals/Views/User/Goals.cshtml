@@ -1,36 +1,36 @@
 ﻿@model User
 
 <div>
-    <h3>Goalss</h3>
+    <h3 class="mb-4">Your Goals</h3>
 
     <form asp-action="UpdateUserGoals" asp-constoller="User" method="post" >
 
             <div class="FormContainer">
-                <div class="mb-3 card card-body">
+                <div class="mb-3 card card-body bg-color5">
                     <label class="form-label" asp-for="CalorieGoal">Calorie Goal</label>
                     <input class="form-control" asp-for="CalorieGoal">
                     <span asp-validaton-for="CalorieGoal"></span>
                 </div>
 
-                <div class="mb-3 card card-body">
+                <div class="mb-3 card card-body bg-color4">
                     <label class="form-label" asp-for="ProteinGoalPercent">Protein Goal Percent</label>
                     <input class="form-control" asp-for="ProteinGoalPercent">
                     <span asp-validaton-for="ProteinGoalPercent"></span>
                 </div>
 
-                <div class="mb-3 card card-body">
+                <div class="mb-3 card card-body bg-color3">
                     <label class="form-label" asp-for="CarbGoalPercent">Carb Goal Percent</label>
                     <input class="form-control" asp-for="CarbGoalPercent">
                     <span asp-validaton-for="CarbGoalPercent"></span>
                 </div>
 
-                <div class="mb-3 card card-body">
+                <div class="mb-3 card card-body bg-color2">
                     <label class="form-label" asp-for="FatGoalPercent">Fat Goal Percent</label>
                     <input class="form-control" asp-for="FatGoalPercent">
                     <span asp-validaton-for="FatGoalPercent"></span>
                 </div>
 
-                <div class="mb-3 card card-body">
+                <div class="mb-3 card card-body bg-color1">
                     <label class="form-label" asp-for="Username">Your Username</label>
                     <input class="form-control" asp-for="Username">
                     <span asp-validaton-for="Username"></span>

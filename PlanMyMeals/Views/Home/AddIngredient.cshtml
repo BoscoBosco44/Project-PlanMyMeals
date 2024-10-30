@@ -3,43 +3,43 @@
 
 <div class="IngredientBox">
 
-    <h3>Ingredients</h3>
+    <h3 class="mb-4">Ingredients</h3>
 
     <form asp-action="CreateIngredient" asp-constoller="Home" method="post">
 
         <div class="FormContainer">
-                <div class="mb-3 card card-body">
+                <div class="mb-3 card card-body bg-color1">
                     <label class="form-label" asp-for="Name">Name</label>
                     <input class="form-control" asp-for="Name">
                     <span asp-validaton-for="Name"></span>
                 </div>
 
-                <div class="mb-3 card card-body">
+                <div class="mb-3 card card-body bg-color2">
                     <label class="form-label" asp-for="CaloriesPer100Gram">Calories</label>
                     <input class="form-control" asp-for="CaloriesPer100Gram">
                     <span asp-validaton-for="CaloriesPer100Gram"></span>
                 </div>
 
-                <div class="mb-3 card card-body">
+                <div class="mb-3 card card-body bg-color3">
                     <label class="form-label" asp-for="ProteinPercent">Protein</label>
                     <input class="form-control" asp-for="ProteinPercent">
                     <span asp-validaton-for="ProteinPercent"></span>
                 </div>
 
-                <div class="mb-3 card card-body">
+                <div class="mb-3 card card-body bg-color4">
                     <label class="form-label" asp-for="CarbPercent">Carbs</label>
                     <input class="form-control" asp-for="CarbPercent">
                     <span asp-validaton-for="CarbPercent"></span>
                 </div>
 
-                <div class="mb-3 card card-body">
+                <div class="mb-3 card card-body bg-color5">
                     <label class="form-label" asp-for="FatPercent">Fat</label>
                     <input class="form-control" asp-for="FatPercent">
                     <span asp-validaton-for="FatPercent"></span>
                 </div>
         </div>
 
-        <input type="submit" class="btn btn-success" value="Add Ingredient">   
+        <input type="submit" class="btn btn-primary" value="Add Ingredient">   
 
     </form>
 

@@ -91,7 +91,29 @@ body {
     text-align: center;
 }
 
+/* -------------------------------------------------------------------- Color Vars -------------------------------------------------------------------- */
 
+/*$color-1: 05299E;
+$color-1: 5E4AE3;
+$color-1: 947BD3;
+$color-1: F0A7A0;
+$color-1: F26CA7;*/
+
+.bg-color1 {
+    background-color: rgba(5, 41, 158, 0.3);
+}
+.bg-color2 {
+    background-color: rgba(94, 74, 227, 0.3);
+}
+.bg-color3 {
+    background-color: rgba(148, 123, 211, 0.3);
+}
+.bg-color4 {
+    background-color: rgba(240, 167, 160, 0.3);
+}
+.bg-color5 {
+    background-color: rgba(242, 108, 167, 0.3);
+}
 /* -------------------------------------------------------------------- Goals Page -------------------------------------------------------------------- */
 
 .FormContainer {
@@ -105,6 +127,13 @@ body {
     }
 }
 
+/* -------------------------------------------------------------------- Add Meal Page -------------------------------------------------------------------- */
+
+.MealSearchButtonBox {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    grid-gap: 1rem;
+}
 
 
 /* -------------------------------------------------------------------- Meal Plan Page -------------------------------------------------------------------- */
@@ -123,6 +152,7 @@ body {
 .MealPlanContainer {
   /* border: 2px solid red; */
   /*display:block;*/
+  padding-right: 1em;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(510px, 1fr));
   grid-gap: 1rem;
@@ -137,6 +167,7 @@ body {
 @media (min-width: 576px) {
     .MealPlanContainer {
         display: grid;
+        grid-gap: 1rem;
     }
 }
 
@@ -198,12 +229,7 @@ ul.mdIngredientsBox {
 
 /* ---------------------------------- Add Recipe Page ---------------------------------- */
 
-.body-Recipe {
-   border: 2px solid red; 
-   height:40em;
-   
-  
-}
+
 
 .AddRecipeText {
   margin-bottom: -0.15em;

@@ -1,36 +1,36 @@
 ﻿@model RecipeViewModel
 
+<h1 class="AddRecipeText mb-4">Add Recipe</h1>
 
-<div class="body-Recipe">
-    <h1 class="AddRecipeText">Add Recipe</h1>
-    <div class="AddRecipeLine"></div>
+<div class="MealPlanContainer">
 
-    <div class="flex">
-
+    <div class="">
 
 
-        <form asp-action="CreateMeal" asp-controller="Home" method="post" class="flex">
 
-            <div class="left-main3">
+        <form asp-action="CreateMeal" asp-controller="Home" method="post" class="">
 
-                <div class="NameAndInstructionsBox">
-                    <div class="InfoBoxSpacing">
-                        <label class="paddingR-1" asp-for="thisMeal.Name">Name</label>
-                        <input asp-for="thisMeal.Name">
-                        <span asp-validation-for="thisMeal.Name"></span>
-                    </div>
-                    <div class="InfoBoxSpacing">
-                        <label class="paddingR-1" asp-for="thisMeal.Instructions">Instructions</label>
-                        <input class="InstructionsInputBox" asp-for="thisMeal.Instructions">
-                        <span asp-validation-for="thisMeal.Instructions"></span>
-                    </div>
 
+            <div class="mb-3 card card-body bg-color5">
+                <div class="">
+                    <label class="form-label" asp-for="thisMeal.Name">Name</label>
+                    <input class="form-control" asp-for="thisMeal.Name">
+                    <span asp-validation-for="thisMeal.Name"></span>
+                </div>
+                <div class="">
+                    <label class="form-label" asp-for="thisMeal.Instructions">Instructions</label>
+                    <input class="form-control" asp-for="thisMeal.Instructions">
+                    <span asp-validation-for="thisMeal.Instructions"></span>
                 </div>
 
+                @*<input type="submit" class="btn btn-primary mt-4" value="Add Recipe" />*@
+
+
             </div>
+
         </form>
 
-        <div class="center-main3">
+        <div class="mb-3 card card-body bg-color2">
             <h3>Recipe's Ingredients</h3>
 
             <ul>
@@ -42,7 +42,7 @@
             </ul>
         </div>
 
-        <div class="right-main3">
+        <div class="mb-3 card card-body bg-color4">
             <h3>Ingredient search:</h3>
             <div>
                 <input id="ingredientSearch" oninput="ingSearch()" placeholder="Search..." />
@@ -52,7 +52,7 @@
                 @foreach(Ingredient ing in Model.allIngredients) {
                 <li class="ingredient-item-QSA" data-name="@ing.Name">
                     @*<button type="button" class="btn-primary" onclick="addIngredientToRecipe(this)" name="@ing.Name" id="@ing.IngredientId">@ing.Name</button>*@
-                    
+
                     <button type="button" class="btn btn-primary mt-2" onclick="openModal(@ing.IngredientId, @Model.thisMeal.MealId)">Open Modal for @ing.Name</button>
                 </li>
                 }
@@ -92,7 +92,7 @@
     </div>
 
 
-    <!-- Modal Structure -->
+    <!------------ Modal Structure ------------>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -165,7 +165,7 @@
 
     function openModal(IngredientId, MealId) {
         $.ajax({
-            url: '/Home/GetModalContent', 
+            url: '/Home/GetModalContent',
             data: { IngredientId: IngredientId, MealId: MealId },
             success: function (result) {
                 $('#myModal .modal-body').html(result); // Load result into modal body

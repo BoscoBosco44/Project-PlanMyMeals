@@ -1,67 +1,59 @@
 @model RecipeViewModel
 
 
-<div class="body-Recipe">
-    <h1 class="AddRecipeText">Add Meal Info</h1>
-    <div class="AddRecipeLine"></div>
-
-    <div class="flex">
+<h1 class="AddRecipeText mb-4">Add Meal Info</h1>
 
 
-        <form asp-action="CreateMeal" asp-controller="Home" method="post" >
+<div class="MealPlanContainer">
 
-            <div class="left-main3">
 
-                <div class="NameAndInstructionsBox">
-                    <div class="InfoBoxSpacing">
-                        <label class="paddingR-1" asp-for="thisMeal.Name">Name</label>
-                        <input asp-for="thisMeal.Name">
-                        <span asp-validation-for="thisMeal.Name"></span>
-                    </div>
-                    <div class="InfoBoxSpacing">
-                        <label class="paddingR-1" asp-for="thisMeal.Instructions">Instructions</label>
-                        <input class="InstructionsInputBox" asp-for="thisMeal.Instructions">
-                        <span asp-validation-for="thisMeal.Instructions"></span>
-                    </div>
+    <form asp-action="CreateMeal" asp-controller="Home" method="post" class="">
 
-                </div>
-                <input type="submit" class="btn btn-primary" />
 
+        <div class="mb-3 card card-body bg-color5">
+            <div class="">
+                <label class="form-label" asp-for="thisMeal.Name">Name</label>
+                <input class="form-control" asp-for="thisMeal.Name">
+                <span asp-validation-for="thisMeal.Name"></span>
             </div>
-        </form>
+            <div class="">
+                <label class="form-label" asp-for="thisMeal.Instructions">Instructions</label>
+                <input class="form-control" asp-for="thisMeal.Instructions">
+                <span asp-validation-for="thisMeal.Instructions"></span>
+            </div>
 
-
-        <div class="center-main3">
-            <h3>do a picture ting</h3>
+            <input type="submit" class="btn btn-primary mt-4" value="Add Meal" />
 
 
         </div>
 
-        <div class="right-main3">
-            <h3>Meal search:</h3>
-
-            <div>
-                <input id="mealSearch" oninput="ingSearch()" placeholder="Search..." />
-            </div>
+    </form>
 
 
 
-                <ul>
-                    @foreach(Meal meal in Model.allMeals) {
-                    <li>
-                        <form asp-action="Recipes" asp-controller="Home" method="post" class="flex search-QSA">
-                            <input type="hidden" name="mealId" value="@meal.MealId" />
-                            <button type="submit" class="btn-primary" onclick="//build recipe pg">@meal.Name</button>
-                        </form>
+    <div class="mb-3 card card-body bg-color2">
+        <h3>Meal search:</h3>
 
-                    </li>
+        <div class="mb-3">
+            <input class="form-control" id="mealSearch" oninput="ingSearch()" placeholder="Search..." />
+        </div>
+
+
+
+        <div class="card card-body bg-color3 MealSearchButtonBox">
+            @foreach(Meal meal in Model.allMeals) {
+
+            <form asp-action="Recipes" asp-controller="Home" method="post" class="flex search-QSA">
+                <input type="hidden" name="mealId" value="@meal.MealId" />
+                <button type="submit" class="btn btn-success m-2" onclick="//build recipe pg">@meal.Name</button>
+            </form>
+
                 }
 
 
-                </ul>
-
-
         </div>
+
+
     </div>
 
 
