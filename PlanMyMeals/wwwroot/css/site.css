@@ -149,26 +149,30 @@ $color-1: F26CA7;*/
     }
 }
 
+
+
 .MealPlanContainer {
   /* border: 2px solid red; */
   /*display:block;*/
   padding-right: 1em;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(510px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 400px));
   grid-gap: 1rem;
+  margin:auto;
 }
 
-
-.mealBox {
-  border: 3px solid black;
-  border-radius: 1em;
-}
 
 @media (min-width: 576px) {
     .MealPlanContainer {
         display: grid;
         grid-gap: 1rem;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 0.5fr));
     }
+}
+
+.mealBox {
+    border: 3px solid black;
+    border-radius: 1em;
 }
 
 /* ------------ Meal Display Partial ------------- */
