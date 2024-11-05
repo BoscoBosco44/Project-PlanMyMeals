@@ -1,6 +1,7 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Models",
     "\\Views",
     "\\Views\\Home",
     "\\Views\\Shared",
@@ -8,6 +9,6 @@
     "\\wwwroot",
     "\\wwwroot\\css"
   ],
-  "SelectedNode": "\\Views\\Home\\Recipes.cshtml",
+  "SelectedNode": "\\Models\\Meal.cs",
   "PreviewInSolutionExplorer": false
 }

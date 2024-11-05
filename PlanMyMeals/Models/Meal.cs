@@ -23,6 +23,25 @@ public class Meal
 
 
 
+
+    //functions
+
+
+    public (double cal, double p, double c, double f) CalculateMacroPercentageTotals(List<MealIngredient> ingredientsList)
+    {
+        double cal, p, c, f;
+
+
+
+        return cal, p, c, f;
+    }
+
+    public int CaclulateSmallScaleFactor(int cal, int p, int c, int f)
+    {
+
+    }
+
+
     public DateTime CreatedAt {get; set;} = DateTime.Now;
     public DateTime UpdatedAt {get; set;} = DateTime.Now;
 
