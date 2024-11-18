@@ -9,83 +9,83 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = PlanMyMeals
 build_property.RootNamespace = PlanMyMeals
-build_property.ProjectDir = C:\Users\peter\Desktop\Coding Projects\Project-PlanMyMeals\PlanMyMeals\
+build_property.ProjectDir = C:\Users\peter\Desktop\Projects\Coding Projects\Project-PlanMyMeals\PlanMyMeals\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\peter\Desktop\Coding Projects\Project-PlanMyMeals\PlanMyMeals
+build_property.MSBuildProjectDirectory = C:\Users\peter\Desktop\Projects\Coding Projects\Project-PlanMyMeals\PlanMyMeals
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/peter/Desktop/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Home/AddIngredient.cshtml]
+[C:/Users/peter/Desktop/Projects/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Home/AddIngredient.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGRJbmdyZWRpZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/peter/Desktop/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Home/AlgoDevPage.cshtml]
+[C:/Users/peter/Desktop/Projects/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Home/AlgoDevPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBbGdvRGV2UGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/peter/Desktop/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Home/MealPlan.cshtml]
+[C:/Users/peter/Desktop/Projects/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Home/MealPlan.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNZWFsUGxhbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/peter/Desktop/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Home/MealsPage.cshtml]
+[C:/Users/peter/Desktop/Projects/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Home/MealsPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNZWFsc1BhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/peter/Desktop/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Home/Recipes.cshtml]
+[C:/Users/peter/Desktop/Projects/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Home/Recipes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWNpcGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/peter/Desktop/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Home/_5IngredientDisplay.cshtml]
+[C:/Users/peter/Desktop/Projects/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Home/_5IngredientDisplay.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfNUluZ3JlZGllbnREaXNwbGF5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/peter/Desktop/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Home/_AddIngredientModal.cshtml]
+[C:/Users/peter/Desktop/Projects/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Home/_AddIngredientModal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfQWRkSW5ncmVkaWVudE1vZGFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/peter/Desktop/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Home/_IngredientSearch.cshtml]
+[C:/Users/peter/Desktop/Projects/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Home/_IngredientSearch.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfSW5ncmVkaWVudFNlYXJjaC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/peter/Desktop/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Home/_MealDisplay.cshtml]
+[C:/Users/peter/Desktop/Projects/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Home/_MealDisplay.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfTWVhbERpc3BsYXkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/peter/Desktop/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Shared/Error.cshtml]
+[C:/Users/peter/Desktop/Projects/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/peter/Desktop/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/peter/Desktop/Projects/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/peter/Desktop/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/User/Goals.cshtml]
+[C:/Users/peter/Desktop/Projects/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/User/Goals.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxHb2Fscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/peter/Desktop/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/User/UserIndex.cshtml]
+[C:/Users/peter/Desktop/Projects/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/User/UserIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVc2VySW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/peter/Desktop/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/User/_LogForm.cshtml]
+[C:/Users/peter/Desktop/Projects/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/User/_LogForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxfTG9nRm9ybS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/peter/Desktop/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/User/_RegForm.cshtml]
+[C:/Users/peter/Desktop/Projects/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/User/_RegForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxfUmVnRm9ybS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/peter/Desktop/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/_ViewImports.cshtml]
+[C:/Users/peter/Desktop/Projects/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/peter/Desktop/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/_ViewStart.cshtml]
+[C:/Users/peter/Desktop/Projects/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/peter/Desktop/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Shared/_Layout.cshtml]
+[C:/Users/peter/Desktop/Projects/Coding Projects/Project-PlanMyMeals/PlanMyMeals/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-sdffre8he4

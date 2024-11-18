@@ -3,7 +3,7 @@
 using System.ComponentModel.DataAnnotations;
 namespace PlanMyMeals.Models;
 
-public class Meal
+public partial class Meal
 {
     [Key]
     public int MealId {get; set;}
@@ -20,26 +20,6 @@ public class Meal
 
     //nav props
     public List<MealIngredient> MealIngredientsList {get; set;} //should be a list of IngredientIDs
-
-
-
-
-    //functions
-
-
-    public (double cal, double p, double c, double f) CalculateMacroPercentageTotals(List<MealIngredient> ingredientsList)
-    {
-        double cal, p, c, f;
-
-
-
-        return cal, p, c, f;
-    }
-
-    public int CaclulateSmallScaleFactor(int cal, int p, int c, int f)
-    {
-
-    }
 
 
     public DateTime CreatedAt {get; set;} = DateTime.Now;

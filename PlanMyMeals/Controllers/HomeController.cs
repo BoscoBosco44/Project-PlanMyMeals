@@ -90,6 +90,10 @@ public class HomeController : Controller
         RecipeViewModel rvm = new RecipeViewModel();
 
         Meal thisMeal = new Meal();
+        var test = thisMeal.test();
+        Console.WriteLine("-------------------- test = " + test);
+
+
 
         List<Meal> allMeals = _context.Meals.ToList();
 
